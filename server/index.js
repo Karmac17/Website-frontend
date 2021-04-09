@@ -85,8 +85,9 @@ app.get('/phone', (req, res) => {
 
 app.post('/profile-signup', (req, res, next) => {
   var data = req.body
+  //create user
   console.log(data)
-  res.render('home', { itemName: data, item: items })
+  res.send(data)
 })
 
 app.listen(port, () => {

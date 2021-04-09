@@ -491,7 +491,7 @@
 
     <!-- New User Details -->
     <section class="NewUser">
-      <form action="" onsubmit="()=>{NewUser.classList.remove('active')}">
+      <form action="/profile-signup" method="POST" onsubmit="()=>{NewUser.classList.remove('active')}">
         <h1>Please fill your details</h1>
         <!-- full name -->
         <input
@@ -508,10 +508,10 @@
           placeholder="Enter your Email"
           required
         />
-        <label for="profileimage">Select image</label>
+        <!-- <label for="profileimage">Select image</label> -->
         <!-- profile image -->
-        <input type="file" name="profileimage" id="" required />
-        <div class="searchBox">
+        <!-- <input type="file" name="profileimage" id="" required /> -->
+        <!-- <div class="searchBox">
           <img src="assets/searchIcon.png" alt="" />
           <input
             type="text"
@@ -519,8 +519,8 @@
             id="carBrandSearch"
             placeholder="Search your car brand"
           />
-        </div>
-        <div class="BrandImageSelection">
+        </div> -->
+        <!-- <div class="BrandImageSelection">
           <h1>Sorry no result found!!</h1>
           <a data-brand="hyundai" href="#">
             <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
@@ -635,7 +635,7 @@
         <input type="button" value="Add" id="addCar" />
         <div class="carSelected">
           <h4>Selected cars</h4>
-          <!-- the input fields carModel_1, registrationNumber_1, variant_1 needed to send to backend
+           the input fields carModel_1, registrationNumber_1, variant_1 needed to send to backend
               format of selected car input will be like this
             <a data-model="swift hyundai" href="#">
               <button type="button" class="closeSelectedCarElem">×</button>
@@ -645,9 +645,9 @@
               <img src="http://localhost:5000/assets/HyundaiCar.png" alt="">
               <p>Swift</p>
             </a>
-           -->
-        </div>
-        <input type="button" value="submit" />
+           
+        </div> -->
+        <input type="submit" value="submit" />
       </form>
     </section>
 

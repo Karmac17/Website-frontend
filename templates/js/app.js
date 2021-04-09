@@ -67,146 +67,146 @@ ChatBotClose.addEventListener("click", () => {
 //=// Popups || Start
 
 // NewUser
-const BrandImageSelection = document.querySelector(".BrandImageSelection");
-const ModelImageSelection = document.querySelector(".ModelImageSelection");
-const BrandSearch = document.querySelector("#carBrandSearch");
-const ModelSearch = document.querySelector("#carModelSearch");
+// const BrandImageSelection = document.querySelector(".BrandImageSelection");
+// const ModelImageSelection = document.querySelector(".ModelImageSelection");
+// const BrandSearch = document.querySelector("#carBrandSearch");
+// const ModelSearch = document.querySelector("#carModelSearch");
 
-const brandList = BrandImageSelection.querySelectorAll("a");
-const modelList = ModelImageSelection.querySelectorAll("a");
-var selectedCar;
-var selectedBrand = Array();
+// const brandList = BrandImageSelection.querySelectorAll("a");
+// const modelList = ModelImageSelection.querySelectorAll("a");
+// var selectedCar;
+// var selectedBrand = Array();
 
-brandList.forEach((brand) => {
-  brand.addEventListener("click", () => {
-    if (brand.className.includes("active")) {
-      brand.classList.remove("active");
-      if (selectedBrand.indexOf(brand.getAttribute("data-brand")) > -1) {
-        selectedBrand.splice(
-          selectedBrand.indexOf(brand.getAttribute("data-brand")),
-          1
-        );
-      }
-    } else {
-      brand.classList.add("active");
-      selectedBrand.push(brand.getAttribute("data-brand"));
-    }
-  });
-});
-modelList.forEach((model) => {
-  model.addEventListener("click", () => {
-    modelList.forEach((tempModel) => {
-      tempModel.classList.remove("active");
-    });
-    model.classList.add("active");
-    document.querySelector("input[name='carModel']").value = model.getAttribute(
-      "data-model"
-    );
-    selectedCar = model;
-  });
-});
+// brandList.forEach((brand) => {
+//   brand.addEventListener("click", () => {
+//     if (brand.className.includes("active")) {
+//       brand.classList.remove("active");
+//       if (selectedBrand.indexOf(brand.getAttribute("data-brand")) > -1) {
+//         selectedBrand.splice(
+//           selectedBrand.indexOf(brand.getAttribute("data-brand")),
+//           1
+//         );
+//       }
+//     } else {
+//       brand.classList.add("active");
+//       selectedBrand.push(brand.getAttribute("data-brand"));
+//     }
+//   });
+// });
+// modelList.forEach((model) => {
+//   model.addEventListener("click", () => {
+//     modelList.forEach((tempModel) => {
+//       tempModel.classList.remove("active");
+//     });
+//     model.classList.add("active");
+//     document.querySelector("input[name='carModel']").value = model.getAttribute(
+//       "data-model"
+//     );
+//     selectedCar = model;
+//   });
+// });
 
-setInterval(() => {
-  var flag = false;
-  brandList.forEach((brand) => {
-    if (
-      !brand
-        .getAttribute("data-brand")
-        .includes(BrandSearch.value.toLowerCase())
-    ) {
-      brand.style.display = "none";
-    } else {
-      brand.style.display = "inline-flex";
-      flag = true;
-    }
-    if (!flag) {
-      BrandImageSelection.querySelector("h1").style.display = "inline-block";
-    } else {
-      BrandImageSelection.querySelector("h1").style.display = "none";
-    }
-  });
-}, 500);
+// setInterval(() => {
+//   var flag = false;
+//   brandList.forEach((brand) => {
+//     if (
+//       !brand
+//         .getAttribute("data-brand")
+//         .includes(BrandSearch.value.toLowerCase())
+//     ) {
+//       brand.style.display = "none";
+//     } else {
+//       brand.style.display = "inline-flex";
+//       flag = true;
+//     }
+//     if (!flag) {
+//       BrandImageSelection.querySelector("h1").style.display = "inline-block";
+//     } else {
+//       BrandImageSelection.querySelector("h1").style.display = "none";
+//     }
+//   });
+// }, 500);
 
-setInterval(() => {
-  var flag = false;
-  modelList.forEach((model) => {
-    if (
-      !model
-        .getAttribute("data-model")
-        .includes(ModelSearch.value.toLowerCase())
-    ) {
-      model.style.display = "none";
-    } else {
-      model.style.display = "none";
+// setInterval(() => {
+//   var flag = false;
+//   modelList.forEach((model) => {
+//     if (
+//       !model
+//         .getAttribute("data-model")
+//         .includes(ModelSearch.value.toLowerCase())
+//     ) {
+//       model.style.display = "none";
+//     } else {
+//       model.style.display = "none";
 
-      selectedBrand.forEach((br) => {
-        if (model.getAttribute("data-model").includes(br.toLowerCase())) {
-          model.style.display = "inline-flex";
-        }
-      });
-      if (selectedBrand.length == 0) model.style.display = "inline-flex";
-      if (model.style.display != "none") flag = true;
-    }
-    if (!flag) {
-      ModelImageSelection.querySelector("h1").style.display = "inline-block";
-    } else {
-      ModelImageSelection.querySelector("h1").style.display = "none";
-    }
-  });
-}, 500);
+//       selectedBrand.forEach((br) => {
+//         if (model.getAttribute("data-model").includes(br.toLowerCase())) {
+//           model.style.display = "inline-flex";
+//         }
+//       });
+//       if (selectedBrand.length == 0) model.style.display = "inline-flex";
+//       if (model.style.display != "none") flag = true;
+//     }
+//     if (!flag) {
+//       ModelImageSelection.querySelector("h1").style.display = "inline-block";
+//     } else {
+//       ModelImageSelection.querySelector("h1").style.display = "none";
+//     }
+//   });
+// }, 500);
 
-const addCar = document.querySelector("#addCar");
-const variant = document.querySelector(".Variant select");
-const carReg = document.querySelector("#carRegistration");
-const carSelected = document.querySelector(".carSelected");
-var elementsInCarSelected = Array();
+// const addCar = document.querySelector("#addCar");
+// const variant = document.querySelector(".Variant select");
+// const carReg = document.querySelector("#carRegistration");
+// const carSelected = document.querySelector(".carSelected");
+// var elementsInCarSelected = Array();
 
-var index = 1;
-addCar.addEventListener("click", () => {
-  if (document.querySelector("input[name='carModel']").value == "") {
-    alert("select a car model");
-  } else {
-    var x = `<a data-model="${selectedCar.getAttribute("data-model")}" href="#">
-              <button type="button" class="closeSelectedCarElem">&times;</button>
-              <input type="text" name="carModel_${index}" 
-                value="${selectedCar.getAttribute("data-model")}" hidden>
-              <input type="text" name="registrationNumber_${index}"
-                value="${carReg.value}" hidden>
-              <input type="text" name="variant_${index}"
-                value="${variant.value}" hidden>
-              <img src="${selectedCar.querySelector("img").src}" alt="" />
-              <p>${selectedCar.querySelector("p").innerText}</p>
-            </a>`;
-    elementsInCarSelected.push(x);
-    carSelected.innerHTML += x;
-    document.querySelector("input[name='carModel']").value = "";
-    carReg.value = "";
-    index++;
-    selectedCar.classList.remove("active");
-  }
-});
+// var index = 1;
+// addCar.addEventListener("click", () => {
+//   if (document.querySelector("input[name='carModel']").value == "") {
+//     alert("select a car model");
+//   } else {
+//     var x = `<a data-model="${selectedCar.getAttribute("data-model")}" href="#">
+//               <button type="button" class="closeSelectedCarElem">&times;</button>
+//               <input type="text" name="carModel_${index}" 
+//                 value="${selectedCar.getAttribute("data-model")}" hidden>
+//               <input type="text" name="registrationNumber_${index}"
+//                 value="${carReg.value}" hidden>
+//               <input type="text" name="variant_${index}"
+//                 value="${variant.value}" hidden>
+//               <img src="${selectedCar.querySelector("img").src}" alt="" />
+//               <p>${selectedCar.querySelector("p").innerText}</p>
+//             </a>`;
+//     elementsInCarSelected.push(x);
+//     carSelected.innerHTML += x;
+//     document.querySelector("input[name='carModel']").value = "";
+//     carReg.value = "";
+//     index++;
+//     selectedCar.classList.remove("active");
+//   }
+// });
 
-setInterval(() => {
-  var removeCar = carSelected.querySelectorAll(".closeSelectedCarElem");
-  removeCar.forEach((rmCar) => {
-    rmCar.addEventListener("click", () => {
-      var i = 0;
-      var j = -1;
-      removeCar.forEach((rmCAR) => {
-        if (rmCAR == rmCar) j = i;
-        i++;
-      });
+// setInterval(() => {
+//   var removeCar = carSelected.querySelectorAll(".closeSelectedCarElem");
+//   removeCar.forEach((rmCar) => {
+//     rmCar.addEventListener("click", () => {
+//       var i = 0;
+//       var j = -1;
+//       removeCar.forEach((rmCAR) => {
+//         if (rmCAR == rmCar) j = i;
+//         i++;
+//       });
 
-      if (j > -1) {
-        elementsInCarSelected.splice(j, 1);
-        carSelected.innerHTML = "<h4>Selected cars</h4>";
-        elementsInCarSelected.forEach((elem) => {
-          carSelected.innerHTML += elem;
-        });
-      }
-    });
-  });
-}, 2000);
+//       if (j > -1) {
+//         elementsInCarSelected.splice(j, 1);
+//         carSelected.innerHTML = "<h4>Selected cars</h4>";
+//         elementsInCarSelected.forEach((elem) => {
+//           carSelected.innerHTML += elem;
+//         });
+//       }
+//     });
+//   });
+// }, 2000);
 
 // Login/Signup Popup show/hide
 const LoginPopup = document.querySelector(".LoginPopup");
