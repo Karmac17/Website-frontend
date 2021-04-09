@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  width: 100%;
+  background-color: #000;
+  scroll-behavior: smooth;
+}
+section {
+  width: 100%;
+  padding: 50px;
+}
+section header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+}
+section header a {
+  margin-right: 20px;
+  width: 35px;
+}
+section header a img {
+  width: 100%;
+}
+section header h1 {
+  position: relative;
+  font-size: 40px;
+  font-weight: 500;
+}
+.brandGallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.brandGallery .brand {
+  height: 120px;
+  margin: 50px;
+  color: #fff;
+  text-align: center;
+}
+.brandGallery .brand:nth-child(2) {
+  height: 180px;
+}
+.brandGallery .brand:nth-child(3) {
+  height: 150px;
+}
+.brand img {
+  height: 100%;
+  object-fit: contain;
+}
+@media only screen and (max-width: 600px) {
+  section {
+    width: 100%;
+    padding: 25px;
+  }
+  section header a {
+    margin-right: 20px;
+    width: 35px;
+  }
+  .brandGallery {
+    margin-top: 20px;
+  }
+  .brandGallery .brand {
+    height: 40px;
+    margin: 25px;
+  }
+  .brandGallery .brand:nth-child(2) {
+    height: 55px;
+  }
+  .brandGallery .brand:nth-child(3) {
+    height: 45px;
+  }
+}

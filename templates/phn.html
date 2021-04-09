@@ -1,0 +1,51 @@
+<html>
+lol
+
+<body>
+    <div id="hmmm"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+    <!-- <script src="/__/firebase/init.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyDgJDjjxXgC7wn0OWjkBuR70xfcelLbmMs",
+            authDomain: "karmac.firebaseapp.com",
+            projectId: "karmac",
+            storageBucket: "karmac.appspot.com",
+            messagingSenderId: "875620689481",
+            appId: "1:875620689481:web:13f58d969401e79538c198",
+            measurementId: "G-4G4E48SZSS"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        //firebase.analytics();
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('hmmm', {
+            'size': 'invisible',
+            'callback': (response) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                onSignInSubmit();
+            }
+        });
+        const phoneNumber = '+919433058880';
+        const appVerifier = window.recaptchaVerifier;
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+                // SMS sent. Prompt user to type the code from the message, then sign the
+                // user in with confirmationResult.confirm(code).
+                window.confirmationResult = confirmationResult;
+                // ...
+            }).catch((error) => {
+                // Error; SMS not sent
+                // ...
+            });
+    </script>
+</body>
+
+</html>

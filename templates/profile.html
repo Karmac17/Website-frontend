@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KARMAC</title>
+    <link rel="stylesheet" href="css/profile.css" />
+    <link
+      rel="icon"
+      href="assets/favicon.png"
+      type="images/png"
+      sizes="16x16"
+    />
+  </head>
+  <body>
+    <button class="Bars_Btn"></button>
+    <header>
+      <a href="/" class="logoBox"></a>
+      <nav>
+        <a id="notificationBtn" href="#">
+          <i class="fas fa-bell"></i><span></span>
+          <p>notification</p>
+        </a>
+        <a href="/searchDealer">
+          <i class="fas fa-search"></i>
+          <p>explore</p>
+        </a>
+        <a href="#">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>location</p>
+        </a>
+        <a href="#">
+          <i class="far fa-credit-card"></i>
+          <p>payments</p>
+        </a>
+        <a href="/chat">
+          <i class="far fa-comment-alt"></i>
+          <p>Chat with dealer</p>
+        </a>
+      </nav>
+      <a href="#" class="logoutBtn">
+        <i class="fas fa-power-off"></i>
+        <p>logout</p>
+      </a>
+    </header>
+    <section>
+      <div class="imgBox">
+        <img src="assets/my orders car.png" alt="" />
+      </div>
+      <div class="ContentBox">
+        <div class="ContentBox_1">
+          <div class="profileimg">
+            <img src="assets/update profile.png" alt="" />
+          </div>
+          <div class="profileDescription">
+            <h1>Kaushik Chandra</h1>
+            <button id="openEditDetails">
+              <i class="fas fa-user-edit"></i>
+            </button>
+            <a href="mailto:abcd@gmail.com">abcd@gmail.com</a>
+            <a href="tel:+919830246021">9830246021</a>
+          </div>
+          <div class="Rcars">
+            <p>Registered cars on karmac</p>
+          </div>
+          <div class="Scenters">
+            <p>Service Centers visited</p>
+          </div>
+        </div>
+        <div class="ContentBox_2">
+          <ul class="navBtns">
+            <li class="navBtns__btn active" data-item="info">
+              <img src="assets/info icon2.png" alt="" />
+              <p>Info</p>
+            </li>
+            <li class="navBtns__btn" data-item="offers">
+              <img src="assets/offer icon.png" alt="" />
+              <p>Offers</p>
+            </li>
+            <li class="navBtns__btn" data-item="score">
+              <img src="assets/score icon.png" alt="" />
+              <p>Score</p>
+            </li>
+            <li class="navBtns__btn" data-item="payments">
+              <img src="assets/payment-icon1.png" alt="" />
+              <p>Payments</p>
+            </li>
+          </ul>
+          <div class="mainBox">
+            <div class="info subBox active">
+              <h3>Your Addresses</h3>
+              <form id="AddNewAddress" action="" method="POST">
+                <h4>Add new Address</h4>
+                <textarea
+                  type="text"
+                  placeholder="Enter your address"
+                ></textarea>
+                <input type="submit" value="ADD" />
+              </form>
+              <ul>
+                <li>Address 1</li>
+                <li>Address 2</li>
+                <li>Address 3</li>
+                <li>Address 4</li>
+              </ul>
+            </div>
+            <div class="offers subBox">
+              <h3>Offers</h3>
+              <ul>
+                <li>Offer 1</li>
+                <li>Offer 2</li>
+                <li>Offer 3</li>
+                <li>Offer 4</li>
+              </ul>
+            </div>
+            <div class="score subBox">
+              <h3>Your Karmac Score</h3>
+              <h1>88</h1>
+              <p>coins</p>
+            </div>
+            <div class="payments subBox">
+              <h3>Payment History</h3>
+              <ul>
+                <li>some random payment</li>
+                <li>some random payment</li>
+                <li>some random payment</li>
+                <li>some random payment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="service">
+          <a href="/chat?Hello+I+want+to+do+this"
+            >Request &nbsp;<i class="fas fa-comment"></i
+          ></a>
+          <h3>Service Centers Visited</h3>
+          <ul>
+            <li>Random center</li>
+            <li>Random center</li>
+            <li>Random center</li>
+            <li>Random center</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- popups -->
+    <div class="notificationModal">
+      <h2>Notification</h2>
+      <button id="closeNotificationModal">&times;</button>
+      <ul>
+        <li>notification1</li>
+        <li>notification2</li>
+        <li>notification3</li>
+        <li>notification4</li>
+        <li>notification5</li>
+        <li>notification6</li>
+        <li>notification7</li>
+        <li>notification8</li>
+        <li>notification9</li>
+        <li>notification10</li>
+      </ul>
+    </div>
+
+    <div class="editDetails">
+      <h2>Update details</h2>
+      <button id="closeEditDetails">&times;</button>
+      <form action="">
+        <input
+          type="text"
+          name="fname"
+          placeholder="Full name"
+          value="Kaushik Chandra"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value="abcd@gmail.com"
+        />
+        <label for="profileImage">Select Profile image</label>
+        <input type="file" name="profileImage" />
+        <label for="profileImage">Select cover image</label>
+        <input type="file" name="coverPhoto" />
+        <input type="submit" value="update" />
+      </form>
+    </div>
+
+    <script src="js/fonsawesome.js" crossorigin="anonymous"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      // if user not authorised
+      if (localStorage.getItem("token") == null) {
+        window.location.href = "/";
+      }
+
+      // Navbar
+      const Bars_Btn = document.querySelector(".Bars_Btn");
+      Bars_Btn.addEventListener("click", () => {
+        Bars_Btn.classList.toggle("active");
+        document.querySelector("header").classList.toggle("active");
+      });
+
+      const notificationBtn = document.querySelector("#notificationBtn");
+      const notificationModal = document.querySelector(".notificationModal");
+      const closeNotificationModal = document.querySelector(
+        "#closeNotificationModal"
+      );
+
+      notificationBtn.addEventListener("click", () => {
+        notificationModal.classList.toggle("active");
+      });
+
+      closeNotificationModal.addEventListener("click", () => {
+        notificationModal.classList.remove("active");
+      });
+
+      const editDetailsBtn = document.querySelector("#openEditDetails");
+      const editDetails = document.querySelector(".editDetails");
+      const closeEditDetails = document.querySelector("#closeEditDetails");
+
+      editDetailsBtn.addEventListener("click", () => {
+        editDetails.classList.toggle("active");
+      });
+
+      closeEditDetails.addEventListener("click", () => {
+        editDetails.classList.remove("active");
+      });
+
+      $(document).ready(function () {
+        $(".navBtns__btn").click(function () {
+          const value = $(this).attr("data-item");
+          $(".subBox").removeClass("active");
+          $("." + value).addClass("active");
+          $(".navBtns__btn").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+
+      // logout
+      const logoutBtn = document.querySelector(".logoutBtn");
+
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>

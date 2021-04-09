@@ -1,0 +1,528 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  overflow: hidden;
+}
+
+/***** Scroll Bar *****/
+*::-webkit-scrollbar {
+  width: 10px;
+  left: -10px;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #0d1418;
+}
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgb(87, 88, 88);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(59, 60, 65);
+}
+
+.Bars_Btn {
+  display: none;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 100vh;
+  padding: 0 20px;
+  border-right: 2px solid var(--primaryColor);
+  overflow-x: hidden;
+  transition: 0.3s ease-in;
+}
+header:hover {
+  width: 250px;
+  padding: 0 10px;
+}
+header .logoBox {
+  width: 75px;
+  height: 75px;
+  background: url("../assets/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header:hover .logoBox {
+  width: 100%;
+  height: 75px;
+  background: url("../assets/name.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header .logoBox img {
+  width: 70%;
+}
+header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
+  font-size: 25px;
+}
+header nav a,
+header .logoutBtn {
+  width: 100%;
+  color: var(--primaryColor);
+  position: relative;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 15px 0;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+header nav a.active,
+header nav a:hover,
+header .logoutBtn:active,
+header .logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+header nav a.notification span {
+  position: absolute;
+  background-color: red;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 2px;
+  right: -4px;
+  border-radius: 10px;
+  z-index: 3;
+}
+header nav p,
+header a p {
+  display: none;
+  font-size: 15px;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+header:hover nav p,
+header:hover a p {
+  display: block;
+}
+section {
+  width: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+.ChatWindow .ChatHeader {
+  width: calc(100% - 20px);
+  padding: 20px 40px;
+  margin: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+}
+.ChatWindow .ChatHeader .CompanyProfile {
+  display: flex;
+  align-items: center;
+}
+.ChatWindow .ChatHeader .CompanyProfile .imgBox {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.ChatWindow .ChatHeader .CompanyProfile .imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.ChatWindow .ChatHeader .CompanyProfile .profileName p {
+  font-size: 13px;
+  padding: 5px 0;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.ChatWindow .ChatHeader .otherOptions a,
+.ChatWindow .ChatHeader .otherOptions button {
+  text-decoration: none;
+  color: #00b931;
+  font-size: 18px;
+  padding: 5px 8px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.ChatWindow .ChatHeader .otherOptions a:hover,
+.ChatWindow .ChatHeader .otherOptions a:active,
+.ChatWindow .ChatHeader .otherOptions button:hover,
+.ChatWindow .ChatHeader .otherOptions button:active {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.ChatWindow .ChatHeader .otherOptions #chatHeaderMenu {
+  display: none;
+}
+.ChatWindow .MainChatBox {
+  width: calc(100% - 20px);
+  height: calc(100vh - 220px);
+  overflow-y: scroll;
+  padding: 20px 40px;
+  margin: 0 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+}
+.ChatWindow .MainChatBox p {
+  display: inline;
+  position: relative;
+  padding: 5px 10px;
+  margin: 7px;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-top-left-radius: 0;
+}
+.ChatWindow .MainChatBox .outgoing {
+  background-color: #00860b;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 7px;
+}
+.ChatWindow .inputBox {
+  width: calc(100% - 20px);
+  padding: 12px 40px;
+  margin: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+}
+.ChatWindow .inputBox form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ChatWindow .inputBox form input[type="text"] {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.ChatWindow .inputBox form input[type="text"]::placeholder {
+  color: #fffa;
+}
+.ChatWindow .inputBox form .fileBox {
+  position: relative;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+.ChatWindow .inputBox form .fileBox #fileToolTip {
+  visibility: hidden;
+  position: absolute;
+  top: -55px;
+  padding: 7px 15px;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #393939;
+  border-radius: 10px;
+}
+.ChatWindow .inputBox form .fileBox #fileToolTip.active {
+  visibility: visible;
+}
+.ChatWindow .inputBox form .fileBox #fileToolTip::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #393939 transparent transparent transparent;
+}
+.ChatWindow .inputBox form button {
+  padding: 0px 25px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 20px;
+  font-size: 30px;
+  color: var(--primaryColor);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.ChatWindow .inputBox form button:hover,
+.ChatWindow .inputBox form button:active {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.ChatWindow .inputBox form .fileBox button {
+  font-size: 22px;
+  padding: 7px 20px;
+}
+.ChatWindow .inputBox form .fileBox #fileToolTip button {
+  padding: 2px 7px;
+  margin: 0;
+  margin-left: 5px;
+  font-size: 16px;
+  background-color: transparent;
+}
+/* popups */
+.notificationModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 110px;
+  padding-top: 10px;
+  transform: translate(0%, -50%);
+  background: #171717;
+  color: #fff;
+  width: 400px;
+  height: 400px;
+  z-index: 3;
+}
+.notificationModal.active {
+  display: block;
+}
+.notificationModal button,
+.Add_RemoveCar #closeAdd_RemoveCar {
+  position: absolute;
+  right: 20px;
+  padding: 0px 10px;
+  background: transparent;
+  color: var(--primaryColor);
+  outline: none;
+  border: 2px solid var(--primaryColor);
+  cursor: pointer;
+  font-size: 30px;
+}
+.notificationModal h2 {
+  width: calc(100% - 100px);
+  position: absolute;
+  left: 20px;
+  line-height: 45.5px;
+  border-bottom: 2px solid var(--primaryColor);
+}
+.notificationModal ul {
+  width: calc(100% - 40px);
+  height: calc(100% - 80px);
+  list-style: none;
+  margin-top: 60px;
+  margin-left: 20px;
+  overflow-y: scroll;
+}
+.notificationModal ul li {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  color: #fff;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+@media only screen and (max-width: 600px) {
+  .Bars_Btn {
+    background-color: transparent;
+    background-image: url("../assets/nav\ bar\ icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: #050505;
+    border: 10px solid #050505;
+    border-radius: 5px;
+    z-index: 2;
+    transition: 0.5s;
+  }
+  .Bars_Btn.active {
+    background-image: url("../assets/cross.png");
+  }
+  header {
+    position: fixed;
+    width: 200px;
+    padding: 0 10px;
+    left: -200px;
+    z-index: 2;
+    background-color: #000;
+    transition: 0.5s;
+  }
+  header:hover {
+    width: 200px;
+  }
+  header.active {
+    left: 0px;
+  }
+  header .logoBox {
+    width: 80%;
+    height: 75px;
+    background: url("../assets/name.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  header:hover .logoBox {
+    width: 80%;
+  }
+  header nav a,
+  header .logoutBtn {
+    padding: 7px 15px;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  header nav p,
+  header a p {
+    display: block;
+    font-size: 13px;
+  }
+  section {
+    width: 100%;
+    height: calc(100vh - 40px);
+    padding-top: 70px;
+  }
+  .ChatWindow .ChatHeader {
+    padding: 20px;
+    height: 100px;
+    position: relative;
+  }
+  .ChatWindow .ChatHeader .CompanyProfile .profileName h3 {
+    font-size: 20px;
+  }
+  .ChatWindow .ChatHeader .otherOptions {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    height: 40px;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.5s;
+  }
+  .ChatWindow .ChatHeader .otherOptions.active {
+    height: 220px;
+    transition: 0.5s;
+  }
+  .ChatWindow .ChatHeader .otherOptions a {
+    display: none;
+    position: relative;
+    margin: 10px 0;
+    background-color: #1e1e1e;
+    z-index: 1;
+  }
+  .ChatWindow .ChatHeader .otherOptions.active a {
+    display: inline-block;
+  }
+  .ChatWindow .ChatHeader .otherOptions #chatHeaderMenu {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 0;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    position: relative;
+  }
+  .ChatWindow .MainChatBox {
+    padding: 10px;
+  }
+  .ChatWindow .MainChatBox p {
+    width: 60%;
+    padding: 5px 10px;
+    margin: 10px;
+  }
+  .ChatWindow .inputBox {
+    padding: 10px 20px;
+  }
+  .ChatWindow .inputBox form input[type="text"] {
+    width: calc(100% - 40px);
+    font-size: 15px;
+  }
+  .ChatWindow .inputBox form .fileBox {
+    margin-right: 5px;
+  }
+  .ChatWindow .inputBox form .fileBox button {
+    font-size: 15px;
+    padding: 5px 10px;
+  }
+  .ChatWindow .inputBox form button {
+    margin-left: 5px;
+    padding: 0px 11px 0 15px;
+    font-size: 22px;
+  }
+  .notificationModal {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  .notificationModal button {
+    border: 2px solid var(--primaryColor);
+    right: 20px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  .ChatWindow .ChatHeader {
+    padding: 20px 10px;
+  }
+  .ChatWindow .ChatHeader .otherOptions {
+    right: 10px;
+  }
+  .ChatWindow .ChatHeader .CompanyProfile .imgBox {
+    margin-right: 10px;
+  }
+  .ChatWindow .ChatHeader .CompanyProfile .profileName p {
+    padding: 0;
+  }
+  .ChatWindow .inputBox {
+    padding: 5px 15px;
+  }
+  .ChatWindow .inputBox form .fileBox {
+    margin-right: 0px;
+  }
+}

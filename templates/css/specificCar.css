@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+}
+section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+section .imgBox {
+  width: 100%;
+  flex: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+section .imgBox a {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 60px;
+  border: 2px solid #000;
+  padding: 15px 10px 8px 10px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+section .imgBox a:hover {
+  border: 3px solid var(--primaryColor);
+}
+section .imgBox a img {
+  filter: invert(1);
+  width: 100%;
+}
+section .imgBox img {
+  width: 700px;
+  object-fit: contain;
+}
+section .ContentBox {
+  flex: 0.5;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  color: #fff;
+}
+section .ContentBox .content {
+  padding: 30px;
+}
+section .ContentBox .content h2 {
+  font-weight: 600;
+}
+section .ContentBox .content p {
+  font-size: 15px;
+  color: #ddd;
+}
+section .ContentBox .content p span {
+  color: var(--primaryColor);
+}
+section .ContentBox .imgs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section .ContentBox .imgs img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+section .ContentBox .imgs img:nth-child(2) {
+  width: 50px;
+  height: 50px;
+}
+@media only screen and (max-width: 600px) {
+  section .imgBox {
+    flex: 0.4;
+  }
+  section .imgBox a {
+    top: 20px;
+    left: 20px;
+    width: 50px;
+  }
+  section .imgBox img {
+    width: calc(100% - 40px);
+  }
+  section .ContentBox {
+    flex: 0.6;
+    padding: 0 10px;
+  }
+  section .ContentBox .content {
+    padding: 10px;
+  }
+}

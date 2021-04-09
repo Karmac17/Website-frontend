@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/mycar.css" />
+    <title>KARMAC</title>
+  </head>
+  <body>
+    <button class="Bars_Btn"></button>
+    <header>
+      <a href="/" class="logoBox"></a>
+      <nav>
+        <a id="notificationBtn" href="#">
+          <i class="fas fa-bell"></i><span></span>
+          <p>notification</p>
+        </a>
+        <a href="/searchDealer">
+          <i class="fas fa-search"></i>
+          <p>explore</p>
+        </a>
+        <a href="#">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>location</p>
+        </a>
+        <a href="#">
+          <i class="far fa-credit-card"></i>
+          <p>payments</p>
+        </a>
+        <a href="/chat">
+          <i class="far fa-comment-alt"></i>
+          <p>Chat with dealer</p>
+        </a>
+      </nav>
+      <a href="#" class="logoutBtn">
+        <i class="fas fa-power-off"></i>
+        <p>logout</p>
+      </a>
+    </header>
+    <section>
+      <div class="banner">
+        <div class="contentBox">
+          <h3>Kaushik Chadra's collection</h3>
+          <span></span>
+          <h1>MY CARS</h1>
+          <p>
+            Karmac allows you to toggle between your car collection, check your
+            health status and features in notifying you with every update
+            seamlessly
+          </p>
+          <button id="manageCar">Manage Cars</button>
+        </div>
+      </div>
+      <div class="carsGallery">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="imgBox">
+                <img src="assets/my orders car.png" />
+              </div>
+              <div class="contentBox">
+                <h2>Mercedes-Benz</h2>
+                <p>E-class</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="imgBox">
+                <img src="assets/my orders car.png" />
+              </div>
+              <div class="contentBox">
+                <h2>Mercedes-Benz</h2>
+                <p>E-class</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="imgBox">
+                <img src="assets/my orders car.png" />
+              </div>
+              <div class="contentBox">
+                <h2>Mercedes-Benz</h2>
+                <p>E-class</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="imgBox">
+                <img src="assets/my orders car.png" />
+              </div>
+              <div class="contentBox">
+                <h2>Mercedes-Benz</h2>
+                <p>E-class</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <!-- popups -->
+    <div class="notificationModal">
+      <h2>Notification</h2>
+      <button id="closeNotificationModal">&times;</button>
+      <ul>
+        <li>notification1</li>
+        <li>notification2</li>
+        <li>notification3</li>
+        <li>notification4</li>
+        <li>notification5</li>
+        <li>notification6</li>
+        <li>notification7</li>
+        <li>notification8</li>
+        <li>notification9</li>
+        <li>notification10</li>
+      </ul>
+    </div>
+
+    <!-- Add / Remove Car -->
+    <section class="Add_RemoveCar">
+      <button id="closeAdd_RemoveCar">&times;</button>
+      <nav>
+        <a href="#" class="active">Add Car</a>
+        <a href="#">Remove Car</a>
+      </nav>
+      <form class="active" action="">
+        <h1>Add Car</h1>
+        <div class="searchBox">
+          <img src="assets/searchIcon.png" alt="" />
+          <input
+            type="text"
+            autocomplete="off"
+            id="carBrandSearch"
+            placeholder="Search your car brand"
+          />
+        </div>
+        <div class="BrandImageSelection">
+          <h1>Sorry no result found!!</h1>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="mercedes" href="#">
+            <img
+              src="assets/Mercedes_Benz_logo_gradient.png"
+              alt=""
+              style="width: 50%"
+            />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+          <a data-brand="hyundai" href="#">
+            <img src="assets/Hyundai-logo-grey-2560x1440.png" alt="" />
+          </a>
+        </div>
+        <div class="searchBox">
+          <img src="assets/searchIcon.png" alt="" />
+          <input
+            type="text"
+            autocomplete="off"
+            id="carModelSearch"
+            placeholder="Search your car model"
+          />
+          <input type="text" name="carModel" required hidden />
+        </div>
+        <div class="ModelImageSelection">
+          <h1>Sorry no result found!!</h1>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="ertiga mercedes" href="#">
+            <img src="assets/mercedesCar.png" alt="" />
+            <p>Ertiga</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+          <a data-model="swift hyundai" href="#">
+            <img src="assets/HyundaiCar.png" alt="" />
+            <p>Swift</p>
+          </a>
+        </div>
+        <input
+          type="text"
+          autocomplete="off"
+          placeholder="Car Registration number ( MH-03-CB-3980 )"
+          id="carRegistration"
+          required
+        />
+        <div class="Variant">
+          <label for="select">Your car variant</label>
+          <select name="fuelType" required>
+            <option style="width: 50px" value="petrol">Petrol</option>
+            <option value="CNG">CNG</option>
+            <option value="diesel">Diesel</option>
+          </select>
+        </div>
+        <input type="button" value="Add" id="addCar" />
+        <div class="carSelected">
+          <h4>Selected cars</h4>
+          <!-- the input fields carModel_1, registrationNumber_1, variant_1 needed to send to backend
+              format of selected car input will be like this
+            <a data-model="swift hyundai" href="#">
+              <button type="button" class="closeSelectedCarElem">×</button>
+              <input type="text" name="carModel_1" value="swift hyundai" hidden="">
+              <input type="text" name="registrationNumber_1" value="Reg_num" hidden="">
+              <input type="text" name="variant_1" value="petrol" hidden="">
+              <img src="http://localhost:5000/assets/HyundaiCar.png" alt="">
+              <p>Swift</p>
+            </a>
+           -->
+        </div>
+        <input type="button" value="submit" />
+      </form>
+      <div class="listOfCar">
+        <h1>Remove Car</h1>
+        <ul>
+          <li>
+            <div class="ImgBox"><img src="assets/HyundaiCar.png" alt="" /></div>
+            <div class="Details">
+              <h2>Car name</h2>
+              <p>MH121212121</p>
+              <p>Petrol</p>
+              <button>Remove</button>
+            </div>
+          </li>
+          <li>
+            <div class="ImgBox"><img src="assets/HyundaiCar.png" alt="" /></div>
+            <div class="Details">
+              <h2>Car name</h2>
+              <p>MH121212121</p>
+              <p>Petrol</p>
+              <button>Remove</button>
+            </div>
+          </li>
+          <li>
+            <div class="ImgBox"><img src="assets/HyundaiCar.png" alt="" /></div>
+            <div class="Details">
+              <h2>Car name</h2>
+              <p>MH121212121</p>
+              <p>Petrol</p>
+              <button>Remove</button>
+            </div>
+          </li>
+          <li>
+            <div class="ImgBox"><img src="assets/HyundaiCar.png" alt="" /></div>
+            <div class="Details">
+              <h2>Car name</h2>
+              <p>MH121212121</p>
+              <p>Petrol</p>
+              <button>Remove</button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <script src="js/fonsawesome.js" crossorigin="anonymous"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/mycar.js"></script>
+  </body>
+</html>

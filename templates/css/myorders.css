@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  overflow: hidden;
+}
+
+/***** Scroll Bar *****/
+*::-webkit-scrollbar {
+  width: 10px;
+  left: -10px;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #0d1418;
+}
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgb(87, 88, 88);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(59, 60, 65);
+}
+
+.Bars_Btn {
+  display: none;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 100vh;
+  padding: 0 20px;
+  border-right: 2px solid var(--primaryColor);
+  overflow-x: hidden;
+  transition: 0.3s ease-in;
+}
+header:hover {
+  width: 250px;
+  padding: 0 10px;
+}
+header .logoBox {
+  width: 75px;
+  height: 75px;
+  background: url("../assets/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header:hover .logoBox {
+  width: 100%;
+  height: 75px;
+  background: url("../assets/name.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header .logoBox img {
+  width: 70%;
+}
+header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
+  font-size: 25px;
+}
+header nav a,
+header .logoutBtn {
+  width: 100%;
+  color: var(--primaryColor);
+  position: relative;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 15px 0;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+header nav a.active,
+header nav a:hover,
+header .logoutBtn:active,
+header .logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+header nav a.notification span {
+  position: absolute;
+  background-color: red;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 2px;
+  right: -4px;
+  border-radius: 10px;
+  z-index: 3;
+}
+header nav p,
+header a p {
+  display: none;
+  font-size: 15px;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+header:hover nav p,
+header:hover a p {
+  display: block;
+}
+section {
+  width: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+section .banner {
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(0deg, #000, #0000),
+    url("../assets/backdrop\ my\ orders\ 1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section .banner button {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px 24px;
+  margin: 0 25px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+  background: transparent;
+  outline: none;
+}
+section .banner button:hover {
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
+}
+section .banner .contentBox {
+  text-align: left;
+  display: inline-block;
+  max-width: 600px;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+section .banner .contentBox h3 {
+  font-size: 30px;
+  font-weight: 400;
+}
+section .banner .contentBox span {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+}
+section .banner .contentBox h1 {
+  font-size: 5em;
+  line-height: 80px;
+  font-weight: 600;
+}
+section .banner .filterBox {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  right: -300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  transition: 0.5s;
+}
+section .banner .filterBox.active {
+  right: 0;
+}
+section .banner .filterBox button {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  padding: 5px 12px;
+  outline: none;
+}
+section .banner .filterBox h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+section .banner .filterBox p {
+  font-size: 15px;
+  margin: 5px;
+}
+section .banner .filterBox p img {
+  width: 12px;
+  transform: rotate(270deg);
+  margin-right: 5px;
+}
+
+section .carsGallery {
+  height: 50vh;
+  position: relative;
+  width: 100%;
+  display: block;
+  overflow-y: scroll;
+}
+section .carsGallery a {
+  text-decoration: none;
+  color: #fff;
+}
+section .carsGallery .car {
+  width: calc(100% - 40px);
+  margin: 20px;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.2);
+}
+section .carsGallery .car .imgBox {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+section .carsGallery .car .imgBox img {
+  position: relative;
+  width: 80%;
+}
+section .carsGallery .car .contentBox {
+  padding: 30px;
+}
+section .carsGallery .car .contentBox h2 {
+  font-weight: 600;
+}
+section .carsGallery .car .contentBox p {
+  font-size: 15px;
+  color: #ddd;
+}
+section .carsGallery .car .contentBox p span {
+  color: var(--primaryColor);
+}
+/* popups */
+.notificationModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 110px;
+  padding-top: 10px;
+  transform: translate(0%, -50%);
+  background: #171717;
+  color: #fff;
+  width: 400px;
+  height: 400px;
+  z-index: 3;
+}
+.notificationModal.active {
+  display: block;
+}
+.notificationModal button,
+.Add_RemoveCar #closeAdd_RemoveCar {
+  position: absolute;
+  right: 20px;
+  padding: 0px 10px;
+  background: transparent;
+  color: var(--primaryColor);
+  outline: none;
+  border: 2px solid var(--primaryColor);
+  cursor: pointer;
+  font-size: 30px;
+}
+.notificationModal h2 {
+  width: calc(100% - 100px);
+  position: absolute;
+  left: 20px;
+  line-height: 45.5px;
+  border-bottom: 2px solid var(--primaryColor);
+}
+.notificationModal ul {
+  width: calc(100% - 40px);
+  height: calc(100% - 80px);
+  list-style: none;
+  margin-top: 60px;
+  margin-left: 20px;
+  overflow-y: scroll;
+}
+.notificationModal ul li {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  color: #fff;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+@media only screen and (max-width: 600px) {
+  .Bars_Btn {
+    background-color: transparent;
+    background-image: url("../assets/nav\ bar\ icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: #050505;
+    border: 10px solid #050505;
+    border-radius: 5px;
+    z-index: 2;
+    transition: 0.5s;
+  }
+  .Bars_Btn.active {
+    background-image: url("../assets/cross.png");
+  }
+  header {
+    position: fixed;
+    width: 200px;
+    padding: 0 10px;
+    left: -200px;
+    z-index: 2;
+    background-color: #000;
+    transition: 0.5s;
+  }
+  header:hover {
+    width: 200px;
+  }
+  header.active {
+    left: 0px;
+  }
+  header .logoBox {
+    width: 80%;
+    height: 75px;
+    background: url("../assets/name.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  header:hover .logoBox {
+    width: 80%;
+  }
+  header nav a,
+  header .logoutBtn {
+    padding: 7px 15px;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  header nav p,
+  header a p {
+    display: block;
+    font-size: 13px;
+  }
+  section {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  section .banner {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 45vh;
+  }
+  section .banner button {
+    margin: 0;
+  }
+  section .banner .contentBox h1 {
+    font-size: 4em;
+    line-height: 60px;
+    font-weight: 600;
+  }
+  section .banner .filterBox {
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+  }
+  section .banner .filterBox button {
+    left: 20px;
+    top: 20px;
+  }
+  section .banner .filterBox h3 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  section .banner .filterBox p {
+    font-size: 15px;
+    margin: 5px;
+  }
+  section .banner .filterBox p img {
+    width: 12px;
+    transform: rotate(270deg);
+    margin-right: 5px;
+  }
+  section .carsGallery {
+    height: 55vh;
+  }
+  section .carsGallery .car {
+    flex-direction: column;
+  }
+  section .carsGallery .car .imgBox {
+    width: 100%;
+    height: 200px;
+  }
+  .notificationModal {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  .notificationModal button {
+    border: 2px solid var(--primaryColor);
+    right: 20px;
+  }
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/chat.css" />
+    <link
+      rel="icon"
+      href="assets/favicon.png"
+      type="images/png"
+      sizes="16x16"
+    />
+    <title>KARMAC</title>
+  </head>
+  <body>
+    <button class="Bars_Btn"></button>
+    <header>
+      <a href="/" class="logoBox"></a>
+      <nav>
+        <a id="notificationBtn" href="#">
+          <i class="fas fa-bell"></i><span></span>
+          <p>notification</p>
+        </a>
+        <a href="/searchDealer">
+          <i class="fas fa-search"></i>
+          <p>explore</p>
+        </a>
+        <a href="#">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>location</p>
+        </a>
+        <a href="#">
+          <i class="far fa-credit-card"></i>
+          <p>payments</p>
+        </a>
+        <a href="/chat">
+          <i class="far fa-comment-alt"></i>
+          <p>Chat with dealer</p>
+        </a>
+      </nav>
+      <a href="#" class="logoutBtn">
+        <i class="fas fa-power-off"></i>
+        <p>logout</p>
+      </a>
+    </header>
+    <section class="ChatWindow">
+      <div class="ChatHeader">
+        <div class="CompanyProfile">
+          <div class="imgBox">
+            <img src="assets/Profile.png" alt="" />
+          </div>
+          <div class="profileName">
+            <h3>Marti Valencia</h3>
+            <p>Salesperson</p>
+          </div>
+        </div>
+        <div class="otherOptions">
+          <button id="chatHeaderMenu"><i class="fas fa-ellipsis-v"></i></button>
+          <a href="#"><i class="fas fa-search"></i></a>
+          <a href="#"><i class="fas fa-search"></i></a>
+          <a href="#"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+      <div class="MainChatBox">
+        <p class="incoming">Hey!! this is Marti Valencia</p>
+        <p class="incoming">How can I hep you ?</p>
+        <p class="outgoing">can you explain how to order service ?</p>
+      </div>
+      <div class="inputBox">
+        <form action="" method="POST">
+          <input type="text" name="msg" autocomplete="off" placeholder="Type something..." id="" />
+          <div class="fileBox">
+            <input id="ChatFileUpload" type="file" name="file" id="file" hidden></input>
+            <span id="fileToolTip">
+              <button type="button"><i class="fas fa-times" aria-hidden="true"></i></button>
+            </span>
+            <button id="RealChatFileUpload" type="button" for="file">
+              <i class="fas fa-paperclip"></i>
+            </button>
+          </div>
+          <button type="submit"><i class="fas fa-caret-right"></i></button>
+        </form>
+      </div>
+    </section>
+
+    <!-- popups -->
+    <div class="notificationModal">
+      <h2>Notification</h2>
+      <button id="closeNotificationModal">&times;</button>
+      <ul>
+        <li>notification1</li>
+        <li>notification2</li>
+        <li>notification3</li>
+        <li>notification4</li>
+        <li>notification5</li>
+        <li>notification6</li>
+        <li>notification7</li>
+        <li>notification8</li>
+        <li>notification9</li>
+        <li>notification10</li>
+      </ul>
+    </div>    
+
+    <script src="js/fonsawesome.js" crossorigin="anonymous"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+      // if user not authorised
+      if (localStorage.getItem("token") == null) {
+        window.location.href = "/";
+      }
+
+      // Navbar
+      const Bars_Btn = document.querySelector(".Bars_Btn");
+      Bars_Btn.addEventListener("click", () => {
+        Bars_Btn.classList.toggle("active");
+        document.querySelector("header").classList.toggle("active");
+      });
+
+      // chat menu 
+      const chatHeaderMenu = document.querySelector("#chatHeaderMenu");
+      const otherOptions = document.querySelector(".otherOptions");
+      chatHeaderMenu.addEventListener("click",() => {
+        if(chatHeaderMenu.innerHTML == '<i class="fas fa-ellipsis-v" aria-hidden="true"></i>'){
+          chatHeaderMenu.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+          otherOptions.classList.toggle('active');
+        }
+        else{
+          chatHeaderMenu.innerHTML = '<i class="fas fa-ellipsis-v" aria-hidden="true"></i>';
+          otherOptions.classList.toggle('active');
+        }
+      });
+
+      // input
+      const inputBox = document.querySelector('.inputBox');
+      var preChat =  window.location.href;
+      preChat = preChat.split('?')[1];
+      if( preChat != undefined){
+        preChat = preChat.split('+').join(' ');
+        inputBox.querySelector('input[type="text"]').value = preChat;
+      }
+
+      // filebox
+      const fileBox = document.querySelector('.fileBox');
+      const ChatFileUpload = fileBox.querySelector('#ChatFileUpload');
+      const FileSubmitButton = document.querySelector('#RealChatFileUpload');
+      const fileToolTip = fileBox.querySelector('#fileToolTip');
+      
+
+      FileSubmitButton.addEventListener('click', () => {
+        ChatFileUpload.click();
+      });
+
+      ChatFileUpload.addEventListener('change', () => {
+        var str = ChatFileUpload.value;
+        str = str.split("\\");
+        str = str[str.length - 1];
+        fileToolTip.innerHTML = str + '<button onclick="closefileToolTip()" type="button"><i class="fas fa-times" aria-hidden="true"></i></button>';       
+        fileToolTip.classList.add('active');
+      });
+
+      function closefileToolTip(){
+        fileToolTip.classList.remove('active'); 
+        fileToolTip.innerHTML = "";
+      }
+
+      const notificationBtn = document.querySelector("#notificationBtn");
+      const notificationModal = document.querySelector(".notificationModal");
+      const closeNotificationModal = document.querySelector(
+        "#closeNotificationModal"
+      );
+
+      notificationBtn.addEventListener("click", () => {
+        notificationModal.classList.toggle("active");
+      });
+
+      closeNotificationModal.addEventListener("click", () => {
+        notificationModal.classList.remove("active");
+      });
+      
+      // logout
+      const logoutBtn = document.querySelector(".logoutBtn");
+
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>

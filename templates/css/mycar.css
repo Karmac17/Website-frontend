@@ -1,0 +1,734 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/***** Scroll Bar *****/
+*::-webkit-scrollbar {
+  width: 10px;
+  left: -10px;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #0d1418;
+}
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgb(87, 88, 88);
+}
+
+body {
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+}
+.Bars_Btn {
+  display: none;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 100vh;
+  padding: 0 20px;
+  border-right: 2px solid var(--primaryColor);
+  overflow-x: hidden;
+  transition: 0.3s ease-in;
+}
+header:hover {
+  width: 250px;
+  padding: 0 10px;
+}
+header .logoBox {
+  width: 75px;
+  height: 75px;
+  background: url("../assets/logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header:hover .logoBox {
+  width: 100%;
+  height: 75px;
+  background: url("../assets/name.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header .logoBox img {
+  width: 70%;
+}
+header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
+  font-size: 25px;
+}
+header nav a,
+header .logoutBtn {
+  width: 100%;
+  color: var(--primaryColor);
+  position: relative;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 15px 0;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+}
+header nav a.active,
+header nav a:hover,
+header .logoutBtn:active,
+header .logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.07);
+}
+header nav a.notification span {
+  position: absolute;
+  background-color: red;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 2px;
+  right: -4px;
+  border-radius: 10px;
+  z-index: 3;
+}
+header nav p,
+header a p {
+  display: none;
+  font-size: 15px;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+header:hover nav p,
+header:hover a p {
+  display: block;
+}
+section {
+  width: calc(100% - 100px);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+section .banner {
+  width: 100%;
+  flex: 0.6;
+  background: linear-gradient(0deg, #000, #0000),
+    url("../assets/my\ cars\ final\ background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+section .banner .contentBox {
+  text-align: left;
+  display: inline-block;
+  max-width: 600px;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+section .banner .contentBox h3 {
+  font-size: 30px;
+  font-weight: 400;
+}
+section .banner .contentBox span {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+}
+section .banner .contentBox h1 {
+  font-size: 7em;
+  line-height: 120px;
+  font-weight: 600;
+}
+section .banner .contentBox #manageCar {
+  width: fit-content;
+  background-color: var(--primaryColor);
+  padding: 7px 15px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 650;
+  font-size: 14px;
+  letter-spacing: 1px;
+  outline: none;
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+}
+section .carsGallery {
+  flex: 0.4;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section .carsGallery .swiper-container {
+  position: relative;
+  width: 600px;
+  height: 180px;
+  margin: 0 50px;
+}
+section .carsGallery .swiper-container .swiper-slide {
+  overflow: hidden;
+}
+section .carsGallery .swiper-container .swiper-slide .imgBox {
+  background-color: #fff;
+  width: 100%;
+  padding: 30px;
+  height: 100%;
+  object-fit: cover;
+}
+section .carsGallery .swiper-container .swiper-slide .imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+section .carsGallery .swiper-container .swiper-slide .contentBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  left: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+  transform: scale(0);
+}
+section .carsGallery .swiper-container .swiper-slide:hover .contentBox {
+  top: 0%;
+  transform: scale(1);
+}
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative;
+  align-self: flex-start;
+  color: #fff;
+  outline: none;
+  z-index: 1;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 20px;
+}
+/* popups */
+.notificationModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 110px;
+  padding-top: 10px;
+  transform: translate(0%, -50%);
+  background: #171717;
+  color: #fff;
+  width: 400px;
+  height: 400px;
+  z-index: 3;
+}
+.notificationModal.active {
+  display: block;
+}
+.notificationModal button,
+.Add_RemoveCar #closeAdd_RemoveCar {
+  position: absolute;
+  right: 20px;
+  padding: 0px 10px;
+  background: transparent;
+  color: var(--primaryColor);
+  outline: none;
+  border: 2px solid var(--primaryColor);
+  cursor: pointer;
+  font-size: 30px;
+}
+.Add_RemoveCar #closeAdd_RemoveCar {
+  right: 0;
+  border-top: none;
+  border-right: none;
+}
+.notificationModal h2 {
+  width: calc(100% - 100px);
+  position: absolute;
+  left: 20px;
+  line-height: 45.5px;
+  border-bottom: 2px solid var(--primaryColor);
+}
+.notificationModal ul {
+  width: calc(100% - 40px);
+  height: calc(100% - 80px);
+  list-style: none;
+  margin-top: 60px;
+  margin-left: 20px;
+  overflow-y: scroll;
+}
+.notificationModal ul li {
+  width: 100%;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  color: #fff;
+  border: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+.Add_RemoveCar {
+  width: 800px;
+  height: 90vh;
+  display: none;
+  opacity: 1;
+  overflow-y: scroll;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #191919;
+  z-index: 5;
+  transition: 0.5s;
+}
+.Add_RemoveCar.active {
+  display: block;
+}
+.Add_RemoveCar nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Add_RemoveCar nav a {
+  width: calc(calc(100% - 80px) / 2);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.Add_RemoveCar nav a.active {
+  background-color: transparent;
+}
+.Add_RemoveCar form,
+.Add_RemoveCar .listOfCar {
+  width: 100%;
+  padding: 30px 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.Add_RemoveCar form.active,
+.Add_RemoveCar .listOfCar.active {
+  display: flex;
+}
+.Add_RemoveCar form h1,
+.Add_RemoveCar .listOfCar h1 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 550;
+  color: #ddd;
+}
+.Add_RemoveCar form label {
+  margin: 10px 0px -5px 10px;
+  text-align: left;
+  width: 600px;
+}
+.Add_RemoveCar form input,
+.Add_RemoveCar form select,
+.Add_RemoveCar form select option {
+  width: 600px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+}
+.Add_RemoveCar form input::placeholder,
+.Add_RemoveCar form select {
+  color: #ddd9;
+}
+.Add_RemoveCar form select option {
+  color: #000;
+}
+.Add_RemoveCar form .searchBox {
+  position: relative;
+  width: 600px;
+  height: 45px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.Add_RemoveCar form .searchBox input {
+  margin: 0;
+  padding-left: 0;
+  background-color: transparent;
+}
+.Add_RemoveCar form .searchBox img {
+  position: relative;
+  height: 100%;
+  padding: 13px 15px;
+}
+.Add_RemoveCar form .carSelected,
+.Add_RemoveCar form .ModelImageSelection,
+.Add_RemoveCar form .BrandImageSelection {
+  width: 600px;
+  height: 250px;
+  padding: 20px;
+  margin: 10px;
+  margin-top: -10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.Add_RemoveCar form .carSelected {
+  margin: 15px 0;
+  position: relative;
+}
+.Add_RemoveCar form .carSelected h4 {
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-weight: 450;
+}
+.Add_RemoveCar form .carSelected a {
+  position: relative;
+}
+.Add_RemoveCar form .carSelected a button {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -10px;
+  right: -12px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  font-size: 25px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Add_RemoveCar form .carSelected a button:hover {
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
+}
+.Add_RemoveCar form .ModelImageSelection h1,
+.Add_RemoveCar form .BrandImageSelection h1 {
+  color: rgb(43, 110, 255);
+  font-weight: 650;
+  letter-spacing: 1px;
+  display: none;
+}
+.Add_RemoveCar form .carSelected a,
+.Add_RemoveCar form .ModelImageSelection a,
+.Add_RemoveCar form .BrandImageSelection a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: 0.1s;
+}
+.Add_RemoveCar form .ModelImageSelection a.active,
+.Add_RemoveCar form .BrandImageSelection a.active {
+  background-color: var(--primaryColor);
+}
+.Add_RemoveCar form .carSelected a img,
+.Add_RemoveCar form .ModelImageSelection a img,
+.Add_RemoveCar form .BrandImageSelection a img {
+  height: 60%;
+  object-fit: contain;
+}
+.Add_RemoveCar form .carSelected a p,
+.Add_RemoveCar form .ModelImageSelection a p,
+.Add_RemoveCar form .BrandImageSelection a p {
+  font-size: 13px;
+  line-height: 13px;
+  letter-spacing: 1px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+.Add_RemoveCar form .Variant {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.Add_RemoveCar form .Variant label {
+  margin: 0 0 -5px 10px;
+}
+.Add_RemoveCar form input[type="button"] {
+  width: fit-content;
+  background-color: var(--primaryColor);
+  padding: 7px 15px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.Add_RemoveCar .listOfCar ul {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.Add_RemoveCar .listOfCar ul li {
+  width: 300px;
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.Add_RemoveCar .listOfCar ul li:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.Add_RemoveCar .listOfCar ul li .ImgBox {
+  width: 90px;
+  display: flex;
+}
+.Add_RemoveCar .listOfCar ul li .ImgBox img {
+  width: 100%;
+  object-fit: contain;
+}
+.Add_RemoveCar .listOfCar ul li .Details {
+  width: 140px;
+}
+.Add_RemoveCar .listOfCar ul li .Details h2 {
+  font-weight: 550;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+.Add_RemoveCar .listOfCar ul li .Details p {
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 13px;
+  color: #fffa;
+}
+.Add_RemoveCar .listOfCar ul li .Details button {
+  background-color: var(--primaryColor);
+  border: none;
+  outline: none;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 4px 0;
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .Bars_Btn {
+    background-color: transparent;
+    background-image: url("../assets/nav\ bar\ icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: #050505;
+    border: 10px solid #050505;
+    border-radius: 5px;
+    z-index: 5;
+    transition: 0.5s;
+  }
+  .Bars_Btn.active {
+    background-image: url("../assets/cross.png");
+  }
+  header {
+    position: fixed;
+    width: 200px;
+    padding: 0 10px;
+    left: -200px;
+    z-index: 2;
+    background-color: #000;
+    transition: 0.5s;
+  }
+  header:hover {
+    width: 200px;
+  }
+  header.active {
+    left: 0px;
+  }
+  header .logoBox {
+    width: 80%;
+    height: 75px;
+    background: url("../assets/name.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  header:hover .logoBox {
+    width: 80%;
+  }
+  header nav a,
+  header .logoutBtn {
+    padding: 7px 15px;
+    margin: 10px 0;
+    font-size: 18px;
+  }
+  header nav p,
+  header a p {
+    display: block;
+    font-size: 13px;
+  }
+  .Add_RemoveCar {
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    transform: translate(0%, 0%);
+  }
+  .Add_RemoveCar nav {
+    margin-top: 70px;
+  }
+  .Add_RemoveCar nav a {
+    width: calc(calc(100% - 20px) / 2);
+  }
+  .Add_RemoveCar form input,
+  .Add_RemoveCar form select,
+  .Add_RemoveCar form select option {
+    width: calc(100% - 20px);
+  }
+  .Add_RemoveCar form .searchBox {
+    position: relative;
+    width: calc(100% - 20px);
+    height: 45px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .Add_RemoveCar form .carSelected,
+  .Add_RemoveCar form .ModelImageSelection,
+  .Add_RemoveCar form .BrandImageSelection {
+    width: calc(100% - 20px);
+  }
+  .Add_RemoveCar form .Variant {
+    width: 100%;
+  }
+  .Add_RemoveCar form .Variant label {
+    width: calc(100% - 20px);
+  }
+  .Add_RemoveCar .listOfCar ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .Add_RemoveCar .listOfCar ul li {
+    width: 300px;
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  .Add_RemoveCar .listOfCar ul li:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+  .Add_RemoveCar .listOfCar ul li .ImgBox {
+    width: 90px;
+    display: flex;
+  }
+  .Add_RemoveCar .listOfCar ul li .ImgBox img {
+    width: 100%;
+    object-fit: contain;
+  }
+  .Add_RemoveCar .listOfCar ul li .Details {
+    width: 140px;
+  }
+  .Add_RemoveCar .listOfCar ul li .Details h2 {
+    font-weight: 550;
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+  .Add_RemoveCar .listOfCar ul li .Details p {
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: #fffa;
+  }
+  .Add_RemoveCar .listOfCar ul li .Details button {
+    background-color: var(--primaryColor);
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 4px 0;
+    cursor: pointer;
+  }
+  section {
+    width: 100%;
+    min-height: 100vh;
+    justify-content: space-evenly;
+  }
+  section .banner .contentBox h3 {
+    font-size: 25px;
+    width: 250px;
+  }
+  section .banner .contentBox span {
+    width: 70%;
+  }
+  section .banner .contentBox h1 {
+    font-size: 5em;
+    line-height: 100px;
+  }
+  section .carsGallery .swiper-container {
+    margin: 20px;
+  }
+  .notificationModal {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+  }
+  .notificationModal button {
+    border: 2px solid var(--primaryColor);
+    right: 20px;
+  }
+}

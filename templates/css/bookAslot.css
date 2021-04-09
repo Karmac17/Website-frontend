@@ -1,0 +1,363 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100vw;
+  background-color: #000;
+  display: flex;
+}
+.Bars_Btn {
+  display: none;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  height: 100vh;
+  padding-top: 30px;
+  border-right: 2px solid var(--primaryColor);
+  overflow-x: hidden;
+}
+header .logoBox {
+  width: 100px;
+  flex: 0.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .logoBox img {
+  width: 70%;
+}
+header nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 0.6;
+  width: 100%;
+  font-size: 25px;
+}
+header nav a {
+  color: var(--primaryColor);
+  position: relative;
+}
+header nav a.active,
+header nav a:hover {
+  color: rgb(189, 31, 31);
+}
+header nav a.notification span {
+  position: absolute;
+  background-color: red;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  top: 2px;
+  right: -4px;
+  border-radius: 10px;
+  z-index: 3;
+}
+header .logoutBtn {
+  flex: 0.3;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primaryColor);
+}
+section {
+  width: calc(100% - 100px);
+  height: 100vh;
+  padding: 0;
+  display: flex;
+}
+section .Address {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  color: #fff;
+  padding: 20px 40px;
+}
+.BookASlotForm h1,
+section .Address h1 {
+  font-size: 55px;
+  line-height: 55px;
+  font-weight: 550;
+  margin: 20px 0;
+  color: #fff;
+}
+section .Address a {
+  text-decoration: none;
+  color: #fff;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+section .Address p {
+  color: var(--primaryColor);
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+section .Address .mapLocation {
+  width: calc(100% - 0px);
+  height: 300px;
+  margin: 20px 0;
+}
+section .Address .mapLocation iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.BookASlotForm form input[type="submit"],
+section .Address button {
+  padding: 5px 30px;
+  border-radius: 20px;
+  width: fit-content;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background: var(--primaryColor);
+  cursor: pointer;
+}
+.BookASlotForm form input[type="submit"]:hover,
+section .Address button:hover {
+  transform: scale(0.95);
+}
+section .sideBox {
+  width: 50%;
+  height: 100%;
+}
+section .sideBox video {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  object-fit: cover;
+}
+section .sideBox .BookASlotForm {
+  position: fixed;
+  right: -50%;
+  top: 0;
+  width: calc(50% - 50px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  color: #fff;
+  background-color: #070707;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 40px;
+  z-index: 2;
+  transition: 0.5s ease-in-out;
+  overflow-y: hidden;
+}
+section .sideBox .BookASlotForm.active {
+  right: 0;
+}
+.BookASlotForm h1 {
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+}
+.BookASlotForm form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+.BookASlotForm .inputBox {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+.BookASlotForm .inputBox label {
+  margin: 10px 0;
+  width: 145px;
+}
+.BookASlotForm .inputBox input,
+.BookASlotForm .inputBox select,
+.BookASlotForm .inputBox select option,
+.BookASlotForm .inputBox textarea {
+  padding: 7px 14px;
+  outline: none;
+  border: none;
+  width: 100%;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #555;
+}
+.BookASlotForm .inputBox textarea {
+  height: 100px;
+  resize: none;
+}
+.BookASlotForm .checkBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 0;
+  width: fit-content;
+}
+.BookASlotForm .checkBox label {
+  margin-left: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.BookASlotForm .checkBox input {
+  width: 20px;
+  height: 20px;
+  outline: none;
+  cursor: pointer;
+}
+.BookASlotForm input[type="submit"] {
+  margin-top: 10px;
+}
+.BookASlotForm #closeBookSlotForm {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  backdrop-filter: blur(10px);
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+@media only screen and (max-width: 900px) {
+  section {
+    width: 100%;
+    height: fit-content;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  section .Address {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px 20px;
+  }
+  section .Address a {
+    width: 100%;
+  }
+  section .Address p {
+    width: 100%;
+  }
+  section .Address .mapLocation {
+    width: 100%;
+  }
+  section .sideBox video {
+    display: none;
+  }
+  section .sideBox .BookASlotForm {
+    right: -80%;
+    width: calc(80% - 100px);
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Bars_Btn {
+    background-color: transparent;
+    background-image: url("../assets/nav\ bar\ icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: #050505;
+    border: 10px solid #050505;
+    border-radius: 5px;
+    z-index: 2;
+    transition: 0.5s;
+  }
+  .Bars_Btn.active {
+    background-image: url("../assets/cross.png");
+  }
+  header {
+    position: fixed;
+    width: 80px;
+    left: -80px;
+    padding: 10px 0;
+    z-index: 2;
+    background-color: #000;
+    transition: 0.5s;
+  }
+  header.active {
+    left: 0px;
+  }
+  section .sideBox .BookASlotForm {
+    right: -100%;
+    width: 100%;
+    padding: 25px;
+    overflow-y: scroll;
+  }
+  .BookASlotForm h1 {
+    padding: 0;
+    margin: 15px 0;
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .BookASlotForm #closeBookSlotForm {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .BookASlotForm .inputBox label {
+    font-size: 14px;
+    margin: 5px;
+  }
+  .BookASlotForm .inputBox input,
+  .BookASlotForm .inputBox select,
+  .BookASlotForm .inputBox select option,
+  .BookASlotForm .inputBox textarea {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .BookASlotForm .inputBox select,
+  .BookASlotForm .inputBox select option {
+    font-size: 12px;
+    width: 100%;
+    padding: 7px 0;
+  }
+  .BookASlotForm .checkBox label {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+  .BookASlotForm .checkBox input {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  section .sideBox .BookASlotForm {
+    padding-top: 200px;
+  }
+  .BookASlotForm .inputBox,
+  .BookASlotForm .checkBox {
+    margin-top: 10px;
+  }
+}

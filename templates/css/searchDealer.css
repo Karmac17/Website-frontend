@@ -1,0 +1,706 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/***** Scroll Bar *****/
+*::-webkit-scrollbar {
+  width: 10px;
+  left: -10px;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #0d1418;
+}
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgb(87, 88, 88);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(59, 60, 65);
+}
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  z-index: 3;
+  background-color: #000;
+  transition: 1s;
+}
+header.active {
+  position: fixed;
+}
+header .logoBox {
+  width: 171px;
+  height: 70px;
+  background-image: url("../assets/name.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header .searchBox {
+  height: 80%;
+  width: calc(100% - 400px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ddd;
+  border: 2px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+header .searchBox img {
+  height: 18px;
+  width: 18px;
+  margin-right: 20px;
+  object-fit: contain;
+}
+header .searchBox input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  letter-spacing: 1px;
+}
+header .Bars_Btn {
+  display: none;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 24px;
+  margin-left: 20px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+}
+header nav a:hover,
+header nav a:active {
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
+}
+header nav #LoginBtn.hide {
+  display: none;
+}
+header nav #MenuBtn.hide {
+  display: none;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 90px);
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+section #filterBoxBtn {
+  display: none;
+}
+section .sideFilterBox {
+  width: 250px;
+  background-color: rgba(0, 0, 0, 0.45);
+  margin: 10px;
+  padding: 20px;
+  color: #fff;
+}
+section .sideFilterBox h2 {
+  width: 100%;
+  font-weight: 450;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #fffa;
+}
+section .sideFilterBox .brand {
+  width: 100%;
+  padding: 20px 10px;
+}
+section .sideFilterBox .brand h3 {
+  position: relative;
+  font-weight: 450;
+  margin-bottom: 10px;
+  left: -10px;
+  letter-spacing: 2px;
+}
+section .sideFilterBox .brand .inputBox {
+  margin: 5px;
+}
+section .sideFilterBox .brand .inputBox input[type="checkbox"] {
+  margin-right: 5px;
+}
+section .sideFilterBox .brand .inputBox input[type="button"] {
+  background-color: transparent;
+  border: none;
+  margin-left: -10px;
+  color: var(--primaryColor);
+  font-size: 15px;
+  cursor: pointer;
+}
+section .sideFilterBox .location {
+  width: 100%;
+  padding: 20px 10px;
+}
+section .sideFilterBox .location h3 {
+  position: relative;
+  font-weight: 450;
+  margin-bottom: 10px;
+  left: -10px;
+  letter-spacing: 2px;
+}
+section .sideFilterBox .location .inputBox {
+  margin: 5px;
+}
+section .sideFilterBox .location .inputBox input[type="checkbox"] {
+  margin-right: 5px;
+}
+section .sideFilterBox .location .inputBox input[type="button"] {
+  background-color: transparent;
+  border: none;
+  margin-left: -10px;
+  color: var(--primaryColor);
+  font-size: 15px;
+  cursor: pointer;
+}
+section .sideFilterBox #applyFilters,
+section .sideFilterBox .location .inputBox #get-location {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--primaryColor);
+  padding: 5px 10px;
+  margin-left: -10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+section .sideFilterBox #applyFilters {
+  display: none;
+}
+section .sideFilterBox .location .inputBox #get-location:hover,
+section .sideFilterBox .location .inputBox #get-location:active {
+  background-color: #090909;
+}
+.searchResults {
+  width: calc(100% - 350px);
+  background-color: rgba(0, 0, 0, 0.45);
+  margin: 10px;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.searchResults .card {
+  width: 350px;
+  height: 300px;
+  opacity: 1;
+  padding: 0 10px;
+  padding-top: 10px;
+  margin: 10px;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+}
+.searchResults .card .imgBox {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.searchResults .card .imgBox img {
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+.searchResults .card .contentBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #000;
+}
+.searchResults .card .content {
+  color: #ddd;
+}
+.searchResults .card .content h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.searchResults .card .content h4 {
+  font-weight: 450;
+  font-size: 14px;
+}
+.searchResults .card .content p {
+  font-weight: 500;
+  font-size: 13px;
+}
+.searchResults .card .content p span {
+  color: var(--primaryColor);
+}
+.searchResults .card .brandImg {
+  width: 100px;
+  height: 100px;
+}
+.searchResults .card .brandImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+section img {
+  width: 50px;
+}
+
+.LoginPopup {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #222;
+  z-index: 10;
+  transition: 0.5s ease-in;
+}
+.LoginPopup.active {
+  left: 0;
+}
+.LoginPopup #loginCloseBtn {
+  font-size: 25px;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 900;
+  padding: 1px 9px 0 9px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+}
+.LoginPopup #loginCloseBtn:hover {
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+}
+.LoginPopup .SignUp {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #ddd;
+  height: 600px;
+}
+.LoginPopup .SignUp.active {
+  display: flex;
+}
+.LoginPopup .SignUp h1 {
+  font-size: 80px;
+  letter-spacing: 5px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.LoginPopup .SignUp p:nth-child(2) {
+  position: relative;
+  top: 0px;
+  font-size: 16px;
+}
+.LoginPopup .SignUp p:nth-child(2) span {
+  font-size: 16px;
+  color: var(--primaryColor);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.LoginPopup .SignUp form {
+  flex: 0.5;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.LoginPopup .SignUp form.active {
+  display: flex;
+}
+.LoginPopup .SignUp form div {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#signUp1withOTP {
+  position: relative;
+}
+#signUp1withOTP::before {
+  content: "";
+  width: calc(calc(100% - 40px) * var(--loadingAmount));
+  height: 4px;
+  background-color: var(--primaryColor);
+  position: absolute;
+  top: calc(calc(212px / 3) - 3px);
+  left: 22px;
+  transition: 0.5s;
+  z-index: 1;
+}
+.LoginPopup .SignUp form #logIn1withEmail.active,
+.LoginPopup .SignUp form #logIn2withEmail.active,
+.LoginPopup .SignUp form #logIn1withOTP.active,
+.LoginPopup .SignUp form #logIn2withOTP.active,
+.LoginPopup .SignUp form #signUp1withEmail.active,
+.LoginPopup .SignUp form #signUp2withEmail.active,
+.LoginPopup .SignUp form #signUp1withOTP.active,
+.LoginPopup .SignUp form #signUp2withOTP.active {
+  display: flex;
+}
+.LoginPopup .SignUp input {
+  position: relative;
+  border-radius: 30px;
+  width: 300px;
+  color: #ddd;
+  padding: 10px 20px;
+  outline: none;
+  background: transparent;
+  border: 2px solid #ddd;
+}
+.LoginPopup .SignUp input::-webkit-outer-spin-button,
+.LoginPopup .SignUp input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.LoginPopup .SignUp form div span {
+  position: relative;
+  left: 40px;
+}
+.LoginPopup .SignUp input[type="number"] {
+  -moz-appearance: textfield;
+}
+.LoginPopup .SignUp input[type="button"],
+.LoginPopup .SignUp input[type="submit"] {
+  position: relative;
+  font-size: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100px;
+  left: -80px;
+  margin: 0 5px;
+}
+.LoginPopup .SignUp a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+}
+.LoginPopup .SignUp a:hover,
+.LoginPopup .SignUp input[type="button"]:hover,
+.LoginPopup .SignUp input[type="submit"]:hover {
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+}
+.LoginPopup .SignUp span {
+  font-size: 12px;
+  text-align: center;
+}
+.LoginPopup .SignUp span a {
+  display: inline;
+  font-size: 12px;
+  text-decoration: underline;
+  color: var(--primaryColor);
+  border: none;
+  margin: 0;
+  padding: 0px;
+  border-radius: 0px;
+}
+.LoginPopup .SignUp span a:hover {
+  color: var(--primaryColor);
+  border: none;
+}
+.LoginPopup .SignUp a img {
+  width: 25px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+
+.SideNavMenu {
+  width: fit-content;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  padding: 40px 60px;
+  color: #ddd;
+  z-index: 10;
+  transition: 0.5s ease-in-out;
+}
+.SideNavMenu.active {
+  right: 0;
+}
+.SideNavMenu #sideNavMenuCloseBtn {
+  color: #ddd;
+  text-decoration: none;
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  font-size: 25px;
+  padding: 0 9px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  outline: none;
+  background: transparent;
+}
+.SideNavMenu #sideNavMenuCloseBtn:hover {
+  color: var(--primaryColor);
+  border-color: var(--primaryColor);
+}
+.SideNavMenu .profile {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.SideNavMenu .profile .imgBox {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.SideNavMenu .profile .imgBox img {
+  height: 60%;
+  object-fit: contain;
+}
+.SideNavMenu ul {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+.SideNavMenu ul a li,
+.SideNavMenu ul button {
+  padding: 5px 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.SideNavMenu ul a {
+  text-decoration: none;
+  color: #ddd;
+}
+.SideNavMenu ul button {
+  position: absolute;
+  bottom: 50px;
+  width: fit-content;
+  font-size: 15px;
+  text-decoration: none;
+  color: #ddd;
+  background: var(--primaryColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+}
+.SideNavMenu ul li:hover,
+.SideNavMenu ul button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+@media only screen and (max-width: 800px) {
+  header .logoBox {
+    background-image: url("../assets/logo.png");
+    width: 60px;
+  }
+  header .searchBox {
+    width: calc(100% - 200px);
+  }
+}
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 10px 15px;
+    width: 100%;
+  }
+  header .searchBox {
+    width: calc(100% - 100px);
+    padding: 10px;
+  }
+  header .searchBox input {
+    font-size: 12px;
+  }
+  header .searchBox p {
+    display: none;
+  }
+  header .searchBox img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+  }
+  header .Bars_Btn {
+    background-color: transparent;
+    background-image: url("../assets/nav\ bar\ icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+  header .Bars_Btn.active {
+    background-image: url("../assets/cross.png");
+  }
+  header nav {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    width: 100%;
+    background-color: #000;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: 0.5s;
+    z-index: 2;
+  }
+  header nav.active {
+    transform: scaleY(1);
+  }
+  header nav a {
+    font-size: 14px;
+    padding: 7px;
+    margin: 10px 25px;
+    text-align: center;
+    font-weight: 500;
+  }
+  section {
+    flex-direction: column;
+  }
+  section #filterBoxBtn {
+    display: block;
+    padding: 7px 14px;
+    background-color: #191919;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  section #filterBoxBtn:hover {
+    background-color: #090909;
+  }
+  section .sideFilterBox {
+    position: fixed;
+    top: 90px;
+    right: -100%;
+    background-color: #0e0e0e;
+    width: 100%;
+    height: calc(100vh - 90px);
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    padding: 20px;
+    transition: 0.5s;
+  }
+  section .sideFilterBox.active {
+    right: 0%;
+  }
+  section .sideFilterBox h2 {
+    width: 250px;
+  }
+  section .sideFilterBox .brand {
+    width: 250px;
+    padding-bottom: 0;
+  }
+  section .sideFilterBox .location {
+    width: 250px;
+    padding: 10px;
+  }
+  section .sideFilterBox #applyFilters {
+    display: inline-block;
+    font-size: 15px;
+    padding: 5px 15px;
+  }
+  section .sideFilterBox #applyFilters:hover {
+    background-color: #090909;
+  }
+  .searchResults {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  .searchResults .card {
+    width: 350px;
+    height: 420px;
+    margin: 10px 0px;
+  }
+
+  .LoginPopup #loginCloseBtn {
+    left: 25px;
+    top: 25px;
+  }
+  .LoginPopup .SignUp h1 {
+    font-size: 60px;
+  }
+  .SideNavMenu #sideNavMenuCloseBtn {
+    left: 20px;
+    top: 20px;
+  }
+  .SideNavMenu ul button {
+    margin-top: 20px;
+  }
+  .SideNavMenu ul a li,
+  .SideNavMenu ul button {
+    font-size: 20px;
+  }
+}

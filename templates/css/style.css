@@ -1,0 +1,1587 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --primaryColor: #82a132;
+  --loadingAmount: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #000;
+  scroll-behavior: smooth;
+}
+
+/***** Scroll Bar *****/
+*::-webkit-scrollbar {
+  width: 10px;
+  left: -10px;
+}
+/* Track */
+*::-webkit-scrollbar-track {
+  background: #0d1418;
+}
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: rgb(87, 88, 88);
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgb(59, 60, 65);
+}
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  z-index: 3;
+  background-color: #000;
+  transition: 1s;
+}
+header.active {
+  position: fixed;
+}
+header .logoBox {
+  width: 250px;
+  height: 70px;
+  background-image: url("../assets/name.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+header .searchBox {
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ddd;
+  border: 2px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+header .searchBox:hover {
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+}
+header .searchBox img {
+  height: 18px;
+  width: 18px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+header .searchBox p {
+  width: fit-content;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+header .Bars_Btn {
+  display: none;
+}
+header nav {
+  display: flex;
+}
+header nav a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 24px;
+  margin-left: 20px;
+  border: 2px solid #ddd;
+  border-radius: 20px;
+}
+header nav a:hover,
+header nav a:active {
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
+}
+header nav #LoginBtn.hide {
+  display: none;
+}
+header nav #MenuBtn.hide {
+  display: none;
+}
+main {
+  width: 100%;
+  position: relative;
+}
+section {
+  width: 100%;
+  position: relative;
+}
+.HeroSection {
+  width: 100%;
+  background: linear-gradient(
+      -2deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("../assets/home\ page\ bg\ and\ search\ a\ dealer.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.HeroSection .swiper-container {
+  width: 100%;
+  height: calc(100vh - 120px);
+  position: relative;
+}
+.HeroSection .swiper-container .swiper-slide {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  padding: 0 10px;
+  padding-top: 10px;
+  transition: 0.5s ease-in-out;
+}
+.HeroSection .swiper-slide .imgBox {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.HeroSection .swiper-slide .imgBox img {
+  height: 100%;
+  min-width: 100%;
+  object-fit: cover;
+}
+.HeroSection .swiper-slide .contentBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px 60px 50px;
+  background-color: #000;
+}
+.HeroSection .swiper-slide .content {
+  color: #ddd;
+}
+.HeroSection .swiper-slide .content h4 {
+  font-weight: 500;
+}
+.HeroSection .swiper-slide .content p {
+  font-weight: 500;
+}
+.HeroSection .swiper-slide .content p span {
+  color: var(--primaryColor);
+}
+.HeroSection .swiper-slide .brandImg {
+  width: 100px;
+  height: 100px;
+}
+.HeroSection .swiper-slide .brandImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.HeroSection .swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: 0.3s opacity;
+  bottom: 10px;
+  transform: translate3d(0, 0, 0);
+  z-index: 3;
+}
+.HeroSection .swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.HeroSection .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--swiper-pagination-color, var(--swiper-theme-color));
+}
+.HeroSection .swiper-container .swiper-button-prev,
+.HeroSection .swiper-container .swiper-button-next {
+  font-size: 50px;
+  cursor: pointer;
+  color: #00a2ff;
+  font-weight: 900;
+  padding: 10px;
+  margin: 20px;
+  transform: translateY(-100px);
+  transition: 0.5s;
+  opacity: 0;
+}
+.HeroSection .swiper-container:hover .swiper-button-prev,
+.HeroSection .swiper-container:hover .swiper-button-next {
+  opacity: 1;
+}
+.HeroSection .swiper-container .swiper-button-prev::after,
+.HeroSection .swiper-container .swiper-button-next::after {
+  z-index: 2;
+}
+.HeroSection .swiper-container .swiper-button-prev::before,
+.HeroSection .swiper-container .swiper-button-next::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+.WelcomeSection {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.WelcomeSection img {
+  width: 100%;
+}
+.WelcomeSection h1 {
+  position: relative;
+  text-align: center;
+  top: 10px;
+  color: #ddd;
+  font-size: 70px;
+  margin-bottom: 50px;
+}
+.WelcomeSection h1 span {
+  color: #a9e908;
+}
+.WelcomeSection p {
+  color: #ddd;
+  font-size: 22px;
+  font-weight: 525;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+  margin: 0 100px;
+  text-align: center;
+}
+.HowWeWork {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.HowWeWork h1,
+.WhyToChoose h1 {
+  color: #ddd;
+  font-size: 50px;
+  text-align: center;
+}
+.HowWeWork .cardContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.HowWeWork .cardContainer .card {
+  position: relative;
+  width: 270px;
+  height: 300px;
+  margin: 20px;
+  background-color: rgba(39, 38, 43, 0.733);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s;
+}
+.HowWeWork .cardContainer .card:hover {
+  background-color: crimson;
+  transform: scale(1.1);
+}
+.HowWeWork .cardContainer .card span {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 0 10px;
+  text-align: center;
+  color: #fff;
+  background: rgba(80, 77, 94, 0.664);
+  border-radius: 25px;
+}
+.HowWeWork .cardContainer .card img {
+  width: 100px;
+  object-fit: contain;
+  position: relative;
+  margin-top: 40px;
+}
+.HowWeWork .cardContainer .card h2 {
+  color: #fafafa;
+  text-align: center;
+  position: relative;
+  line-height: 30px;
+  padding: 20px;
+  font-weight: 550;
+  flex: 0.3;
+}
+.AppAdvertise {
+  width: 100%;
+  height: 65vh;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.AppAdvertise .imgBox {
+  height: 55vh;
+  width: 26vh;
+  box-shadow: -10px 10px 20px rgb(0 0 0 / 70%), 5px 5px 5px rgb(0 0 0 / 20%),
+    15px 15px 15px rgb(0 0 0 / 20%);
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.AppAdvertise .imgBox img {
+  height: 102%;
+  object-fit: contain;
+}
+.AppAdvertise .contentBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s;
+}
+.AppAdvertise .contentBox h1 {
+  font-size: 60px;
+  color: #111;
+  margin-bottom: 20px;
+}
+.AppAdvertise .contentBox a {
+  margin: 20px;
+  position: relative;
+}
+.AppAdvertise .contentBox a img {
+  height: 70px;
+  object-fit: contain;
+}
+.WhyToChoose {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.WhyToChoose .swiper-container {
+  width: 100%;
+  height: 70%;
+  margin-top: 30px;
+}
+.WhyToChoose .swiper-container .swiper-slide {
+  position: relative;
+}
+.WhyToChoose .swiper-container .swiper-slide::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 2;
+}
+
+.WhyToChoose .swiper-container .swiper-slide img {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  float: right;
+  object-fit: cover;
+  z-index: 1;
+}
+.WhyToChoose .swiper-container .swiper-slide p {
+  color: #fff;
+  position: absolute;
+  top: 35%;
+  left: 50px;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: 600;
+  max-width: 500px;
+  z-index: 3;
+}
+.WhyToChoose .swiper-container .swiper-pagination {
+  position: absolute;
+  top: 65%;
+  left: 100px;
+  width: fit-content;
+  height: fit-content;
+}
+.WhyToChoose .swiper-container .swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #ddd;
+  opacity: 0.4;
+}
+.WhyToChoose .swiper-container .swiper-pagination-bullet-active {
+  width: 14px;
+  height: 14px;
+  margin: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 1;
+}
+.WhyToChoose .swiper-container .controls {
+  width: 150px;
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.WhyToChoose .swiper-container .controls .swiper-button-next,
+.WhyToChoose .swiper-container .controls .swiper-button-prev {
+  position: relative;
+  top: 50%;
+  width: auto;
+  height: auto;
+  margin-top: 10px;
+  padding: 10px 17px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  outline: none;
+  border: 3px solid #fff;
+}
+.WhyToChoose .swiper-container .controls .swiper-button-next:hover,
+.WhyToChoose .swiper-container .controls .swiper-button-prev:hover {
+  color: var(--primaryColor);
+  border: 3px solid var(--primaryColor);
+}
+.WhyToChoose .swiper-container .controls .swiper-button-next::after,
+.WhyToChoose .swiper-container .controls .swiper-button-prev::after {
+  font-size: 25px;
+  font-weight: 700;
+  transform: translateX(-2px);
+}
+.WhyToChoose .swiper-container .controls .swiper-button-next::after {
+  transform: translateX(2px);
+}
+
+.contact__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 60vh;
+  background: rgba(255, 255, 255, 0.1);
+}
+.contact__section .contactDetails {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  flex: 0.4;
+}
+.contact__section .contactDetails .head,
+.contact__section .contactForm .head {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.contact__section .contactDetails .head p,
+.contact__section .contactForm .head p {
+  font-size: 12px;
+  color: #f86d09;
+  text-decoration: underline;
+}
+.contact__section .contactDetails .head h1,
+.contact__section .contactForm .head h1 {
+  font-size: 30px;
+  color: #ddd;
+}
+.contact__section .contactDetails .box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.contact__section .contactDetails .box .imgBox {
+  font-size: 25px;
+  color: #a9e908;
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  margin-left: 0;
+}
+.contact__section .contactDetails .box .contentBox p {
+  font-size: 12px;
+  color: #ddd;
+}
+.contact__section .contactDetails .box .contentBox a {
+  text-decoration: none;
+}
+.contact__section .contactDetails .box .contentBox a h2 {
+  font-size: 23px;
+  color: #ddd;
+}
+.contact__section .contactDetails .socialmediaBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.contact__section .contactDetails .socialmediaBox a {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  margin-left: 0;
+  text-decoration: none;
+  position: relative;
+}
+.contact__section .contactDetails .socialmediaBox a i {
+  z-index: 2;
+}
+.contact__section .contactDetails .socialmediaBox a:before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  right: 2px;
+  bottom: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 0;
+}
+.contact__section .contactDetails .socialmediaBox a:nth-child(even):before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  right: 1px;
+  bottom: 2px;
+  background-color: #000;
+  border-radius: 5px;
+  z-index: 0;
+}
+.contact__section .contactForm {
+  display: flex;
+  flex-direction: column;
+  flex: 0.35;
+  max-width: 450px;
+}
+.contact__section .contactForm form {
+  width: 100%;
+}
+.contact__section .contactForm form .inputBox {
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.contact__section .contactForm form .inputBox:nth-child(3) {
+  align-items: unset;
+}
+.contact__section .contactForm form .inputBox i {
+  position: absolute;
+  right: 20px;
+  font-size: 16px;
+  color: #a9e908;
+}
+.contact__section .contactForm form .inputBox:nth-child(3) i {
+  top: 15px;
+}
+.contact__section .contactForm form .inputBox input,
+.contact__section .contactForm form .inputBox textarea {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  color: #ddd;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.contact__section .contactForm form .inputBox textarea {
+  resize: none;
+}
+.contact__section .contactForm form .inputBox input::placeholder,
+.contact__section .contactForm form .inputBox textarea::placeholder {
+  color: #ddd9;
+}
+.contact__section .contactForm form input[type="submit"] {
+  position: relative;
+  padding: 6px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ddd;
+  background-color: #379600;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+.contact__section .contactForm form input[type="submit"]:hover {
+  background-color: #34770d;
+}
+footer {
+  height: 90px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 14px;
+}
+/* ChatBot */
+.ChatBot {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 4;
+  overflow: hidden;
+}
+.ChatBot .ImgBox {
+  display: none;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #fff3;
+  transition: 0.5s;
+}
+.ChatBot .ImgBox.active {
+  display: block;
+}
+.ChatBot .ImgBox img {
+  width: 100%;
+  height: 100%;
+}
+.ChatBot .ChatScreen {
+  display: none;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.ChatBot .ChatScreen.active {
+  display: block;
+}
+.ChatBot .ChatScreen .profileHead {
+  width: 100%;
+  height: 50px;
+  padding: 0px 15px;
+  background-color: var(--primaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ChatBot .ChatScreen .profileHead .profileName {
+  display: flex;
+  align-items: center;
+}
+.ChatBot .ChatScreen .profileHead .profileName img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.ChatBot .ChatScreen .profileHead .profileName p {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.ChatBot .ChatScreen .profileHead button {
+  padding: 2px 11px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: var(--primaryColor);
+  background: #fff;
+  cursor: pointer;
+}
+.ChatBot .ChatScreen .profileHead button:hover {
+  background: #ccc;
+}
+.ChatBot .ChatScreen .MessageBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 50px);
+}
+.ChatBot .ChatScreen .MessageBox .Messages {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 90%;
+  padding: 15px;
+  position: relative;
+  overflow-y: scroll;
+  padding-bottom: 40px;
+}
+.ChatBot .ChatScreen .MessageBox .Messages p {
+  display: inline-block;
+  position: relative;
+  align-self: flex-start;
+  width: fit-content;
+  background: #d3d3d3;
+  padding: 5px 15px;
+  margin: 7px 0;
+  font-size: 14px;
+  border-radius: 15px;
+  font-weight: 500;
+}
+.ChatBot .ChatScreen .MessageBox .Messages .outgoing {
+  background: var(--primaryColor);
+  align-self: flex-end;
+}
+.ChatBot .ChatScreen .MessageBox .Messages .ExtraSpaceBottom {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 30px;
+  background: transparent;
+}
+.ChatBot .ChatScreen .MessageBox form {
+  position: relative;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.ChatBot .ChatScreen .MessageBox form input {
+  width: calc(100% - 40px);
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: #d3d3d3;
+  padding: 5px 18px;
+  font-weight: 500;
+}
+.ChatBot .ChatScreen .MessageBox form button {
+  position: relative;
+  width: 40px;
+  right: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--primaryColor);
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Popups */
+.LoginPopup {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #222;
+  z-index: 10;
+  transition: 0.5s ease-in;
+}
+.LoginPopup.active {
+  left: 0;
+}
+.LoginPopup #loginCloseBtn {
+  font-size: 25px;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 900;
+  padding: 1px 9px 0 9px;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  border: 2px solid #ddd;
+  border-radius: 30px;
+}
+.LoginPopup #loginCloseBtn:hover {
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+}
+.LoginPopup .SignUp {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #ddd;
+  height: 600px;
+}
+.LoginPopup .SignUp.active {
+  display: flex;
+}
+.LoginPopup .SignUp h1 {
+  font-size: 80px;
+  letter-spacing: 5px;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.LoginPopup .SignUp p:nth-child(2) {
+  position: relative;
+  top: 0px;
+  font-size: 16px;
+}
+.LoginPopup .SignUp p:nth-child(2) span {
+  font-size: 16px;
+  color: var(--primaryColor);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.LoginPopup .SignUp form {
+  flex: 0.5;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.LoginPopup .SignUp form.active {
+  display: flex;
+}
+.LoginPopup .SignUp form div {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+#signUp1withOTP {
+  position: relative;
+}
+#signUp1withOTP::before {
+  content: "";
+  width: calc(calc(100% - 40px) * var(--loadingAmount));
+  height: 4px;
+  background-color: var(--primaryColor);
+  position: absolute;
+  top: calc(calc(212px / 3) - 3px);
+  left: 22px;
+  transition: 0.5s;
+  z-index: 1;
+}
+.LoginPopup .SignUp form #logIn1withEmail.active,
+.LoginPopup .SignUp form #logIn2withEmail.active,
+.LoginPopup .SignUp form #logIn1withOTP.active,
+.LoginPopup .SignUp form #logIn2withOTP.active,
+.LoginPopup .SignUp form #signUp1withEmail.active,
+.LoginPopup .SignUp form #signUp2withEmail.active,
+.LoginPopup .SignUp form #signUp1withOTP.active,
+.LoginPopup .SignUp form #signUp2withOTP.active {
+  display: flex;
+}
+.LoginPopup .SignUp input {
+  position: relative;
+  border-radius: 30px;
+  width: 300px;
+  color: #ddd;
+  padding: 10px 20px;
+  outline: none;
+  background: transparent;
+  border: 2px solid #ddd;
+}
+.LoginPopup .SignUp input::-webkit-outer-spin-button,
+.LoginPopup .SignUp input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.LoginPopup .SignUp form div span {
+  position: relative;
+  left: 40px;
+}
+.LoginPopup .SignUp input[type="number"] {
+  -moz-appearance: textfield;
+}
+.LoginPopup .SignUp input[type="button"],
+.LoginPopup .SignUp input[type="submit"] {
+  position: relative;
+  font-size: 15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 100px;
+  left: -80px;
+  margin: 0 5px;
+}
+.LoginPopup .SignUp a {
+  font-size: 15px;
+  text-decoration: none;
+  color: #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ddd;
+  width: 250px;
+  height: 40px;
+  border-radius: 20px;
+}
+.LoginPopup .SignUp a:hover,
+.LoginPopup .SignUp input[type="button"]:hover,
+.LoginPopup .SignUp input[type="submit"]:hover {
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+}
+.LoginPopup .SignUp span {
+  font-size: 12px;
+  text-align: center;
+}
+.LoginPopup .SignUp span a {
+  display: inline;
+  font-size: 12px;
+  text-decoration: underline;
+  color: var(--primaryColor);
+  border: none;
+  margin: 0;
+  padding: 0px;
+  border-radius: 0px;
+}
+.LoginPopup .SignUp span a:hover {
+  color: var(--primaryColor);
+  border: none;
+}
+.LoginPopup .SignUp a img {
+  width: 25px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+.NewUser {
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  background-color: #191919;
+  z-index: 4;
+  transition: 0.5s;
+}
+.NewUser.active {
+  right: 0;
+  opacity: 1;
+}
+.NewUser form {
+  width: 100%;
+  min-height: 100%;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.NewUser form h1 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  font-weight: 550;
+  color: #ddd;
+}
+.NewUser form label {
+  margin: 10px 0px -5px 10px;
+  text-align: left;
+  width: 600px;
+}
+.NewUser form input,
+.NewUser form select,
+.NewUser form select option {
+  width: 600px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+}
+.NewUser form input::placeholder,
+.NewUser form select {
+  color: #ddd9;
+}
+.NewUser form select option {
+  color: #000;
+}
+.NewUser form .searchBox {
+  position: relative;
+  width: 600px;
+  height: 45px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.NewUser form .searchBox input {
+  margin: 0;
+  padding-left: 0;
+  background-color: transparent;
+}
+.NewUser form .searchBox img {
+  position: relative;
+  height: 100%;
+  padding: 13px 15px;
+}
+.NewUser form .carSelected,
+.NewUser form .ModelImageSelection,
+.NewUser form .BrandImageSelection {
+  width: 600px;
+  height: 250px;
+  padding: 20px;
+  margin: 10px;
+  margin-top: -10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.NewUser form .carSelected {
+  margin: 15px 0;
+  position: relative;
+}
+.NewUser form .carSelected h4 {
+  color: #fff;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-weight: 450;
+}
+.NewUser form .carSelected a {
+  position: relative;
+}
+.NewUser form .carSelected a button {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: -10px;
+  right: -12px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  font-size: 25px;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.NewUser form .carSelected a button:hover {
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
+}
+.NewUser form .ModelImageSelection h1,
+.NewUser form .BrandImageSelection h1 {
+  color: rgb(43, 110, 255);
+  font-weight: 650;
+  letter-spacing: 1px;
+  display: none;
+}
+.NewUser form .carSelected a,
+.NewUser form .ModelImageSelection a,
+.NewUser form .BrandImageSelection a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  text-decoration: none;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: 0.1s;
+}
+.NewUser form .ModelImageSelection a.active,
+.NewUser form .BrandImageSelection a.active {
+  background-color: var(--primaryColor);
+}
+.NewUser form .carSelected a img,
+.NewUser form .ModelImageSelection a img,
+.NewUser form .BrandImageSelection a img {
+  height: 60%;
+  object-fit: contain;
+}
+.NewUser form .carSelected a p,
+.NewUser form .ModelImageSelection a p,
+.NewUser form .BrandImageSelection a p {
+  font-size: 13px;
+  line-height: 13px;
+  letter-spacing: 1px;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+}
+.NewUser form .Variant {
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.NewUser form .Variant label {
+  margin: 0 0 -5px 10px;
+}
+.NewUser form input[type="button"] {
+  width: fit-content;
+  background-color: var(--primaryColor);
+  padding: 7px 15px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.SideNavMenu {
+  width: fit-content;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  padding: 40px 60px;
+  color: #ddd;
+  z-index: 10;
+  transition: 0.5s ease-in-out;
+}
+.SideNavMenu.active {
+  right: 0;
+}
+.SideNavMenu #sideNavMenuCloseBtn {
+  color: #ddd;
+  text-decoration: none;
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  font-size: 25px;
+  padding: 0 9px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  outline: none;
+  background: transparent;
+}
+.SideNavMenu #sideNavMenuCloseBtn:hover {
+  color: var(--primaryColor);
+  border-color: var(--primaryColor);
+}
+.SideNavMenu .profile {
+  flex: 0.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.SideNavMenu .profile .imgBox {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.SideNavMenu .profile .imgBox img {
+  height: 60%;
+  object-fit: contain;
+}
+.SideNavMenu ul {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+.SideNavMenu ul a li,
+.SideNavMenu ul button {
+  padding: 5px 15px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.SideNavMenu ul a {
+  text-decoration: none;
+  color: #ddd;
+}
+.SideNavMenu ul button {
+  position: absolute;
+  bottom: 50px;
+  width: fit-content;
+  font-size: 15px;
+  text-decoration: none;
+  color: #ddd;
+  background: var(--primaryColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+}
+.SideNavMenu ul li:hover,
+.SideNavMenu ul button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+@media only screen and (max-width: 600px) {
+  header {
+    padding: 10px 15px;
+    width: 100%;
+  }
+  header .logoBox {
+    background-image: url("../assets/logo.png");
+    width: 60px;
+  }
+  header .searchBox {
+    padding: 20px 13px;
+    border-radius: 30px;
+  }
+  header .searchBox p {
+    display: none;
+  }
+  header .searchBox img {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+  header .Bars_Btn {
+    background-color: transparent;
+    background-image: url("../assets/nav\ bar\ icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+  header .Bars_Btn.active {
+    background-image: url("../assets/cross.png");
+  }
+  header nav {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    top: 70px;
+    width: 100%;
+    background-color: #000;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: 0.5s;
+    z-index: 2;
+  }
+  header nav.active {
+    transform: scaleY(1);
+  }
+  header nav a {
+    font-size: 14px;
+    padding: 7px;
+    margin: 10px 25px;
+    text-align: center;
+    font-weight: 500;
+  }
+  section {
+    position: relative;
+  }
+  .HeroSection .swiper-container {
+    height: fit-content;
+  }
+  .HeroSection .swiper-slide .imgBox {
+    height: 30vh;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  .HeroSection .swiper-slide .contentBox {
+    height: 30%;
+    padding: 20px 20px 50px 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  .WelcomeSection {
+    height: fit-content;
+    padding: 50px 20px;
+  }
+  .WelcomeSection h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+  }
+  .WelcomeSection p {
+    font-size: 17px;
+    margin: 20px;
+    text-align: left;
+  }
+  .HowWeWork h1,
+  .WhyToChoose h1 {
+    font-size: 30px;
+    padding: 0 20px;
+  }
+  .HowWeWork .cardContainer .card {
+    width: 140px;
+    height: 160px;
+    margin: 10px;
+  }
+  .HowWeWork .cardContainer .card span {
+    left: 5px;
+    top: 5px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 40px;
+  }
+  .HowWeWork .cardContainer .card img {
+    width: 50px;
+    object-fit: contain;
+    position: relative;
+    margin-top: 40px;
+  }
+  .HowWeWork .cardContainer .card h2 {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  .AppAdvertise {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: fit-content;
+    padding: 20px 0;
+  }
+  .AppAdvertise .imgBox {
+    width: 200px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .AppAdvertise .contentBox h1 {
+    font-size: 40px;
+    text-align: center;
+  }
+  .AppAdvertise .contentBox nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .AppAdvertise .contentBox a {
+    margin: 10px 0;
+  }
+  .WhyToChoose {
+    height: calc(100vh + 150px);
+    padding: 50px 0px;
+  }
+  .WhyToChoose .swiper-container .swiper-slide::before {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.7) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .WhyToChoose .swiper-container .swiper-slide img {
+    width: 100%;
+  }
+  .WhyToChoose h1 {
+    font-size: 40px;
+  }
+  .WhyToChoose .swiper-container .swiper-slide p {
+    font-size: 23px;
+    width: 250px;
+    left: 25px;
+  }
+  .WhyToChoose .swiper-container .swiper-pagination {
+    left: 45px;
+  }
+  .WhyToChoose .swiper-container .controls {
+    left: 25px;
+    width: 130px;
+  }
+  .WhyToChoose .swiper-container .controls .swiper-button-next,
+  .WhyToChoose .swiper-container .controls .swiper-button-prev {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  /* ChatBot */
+  .ChatBot {
+    right: 15px;
+    bottom: 15px;
+  }
+  .ChatBot .ImgBox {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Popups */
+  .LoginPopup #loginCloseBtn {
+    left: 25px;
+    top: 25px;
+  }
+  .LoginPopup .SignUp h1 {
+    font-size: 60px;
+  }
+  .NewUser form {
+    padding: 50px 0;
+  }
+  .NewUser form h1 {
+    font-size: 30px;
+    line-height: 35px;
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+  .NewUser form label {
+    width: calc(100% - 10px);
+    margin: 5px 0px -5px 10px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .NewUser form input,
+  .NewUser form select,
+  .NewUser form select option {
+    width: calc(100% - 20px);
+    padding: 10px 20px;
+    margin: 10px;
+  }
+  .NewUser form .ModelImageSelection,
+  .NewUser form .BrandImageSelection {
+    width: calc(100% - 20px);
+    height: 250px;
+    padding: 20px;
+  }
+  .NewUser form .searchBox {
+    position: relative;
+    width: calc(100% - 20px);
+    height: 45px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .NewUser form .searchBox input {
+    margin: 0;
+    padding-left: 0;
+    background-color: transparent;
+  }
+  .NewUser form .searchBox img {
+    position: relative;
+    height: 100%;
+    padding: 13px 15px;
+  }
+  .SideNavMenu #sideNavMenuCloseBtn {
+    left: 20px;
+    top: 20px;
+  }
+  .SideNavMenu ul button {
+    margin-top: 20px;
+  }
+  .SideNavMenu ul a li,
+  .SideNavMenu ul button {
+    font-size: 20px;
+  }
+  .contact__section {
+    width: 100%;
+    padding: 20px;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+  .contact__section .contactDetails {
+    width: 100%;
+    flex: content;
+    height: fit-content;
+    margin: 20px 0;
+    justify-content: space-evenly;
+  }
+  .contact__section .contactDetails .head,
+  .contact__section .contactForm .head {
+    margin-bottom: 20px;
+  }
+  .contact__section .contactDetails .head p,
+  .contact__section .contactForm .head p {
+    font-size: 12px;
+  }
+  .contact__section .contactDetails .head h1,
+  .contact__section .contactForm .head h1 {
+    font-size: 30px;
+  }
+  .contact__section .contactDetails .box .imgBox {
+    font-size: 25px;
+    margin: 12px;
+  }
+  .contact__section .contactDetails .box .contentBox p {
+    font-size: 14px;
+  }
+  .contact__section .contactDetails .box .contentBox {
+    width: calc(100% - 20px);
+    align-self: center;
+  }
+  .contact__section .contactDetails .box .contentBox h2 {
+    width: calc(100% - 20px);
+    font-size: 18px;
+    line-height: 35px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+  }
+  .contact__section .contactForm {
+    display: flex;
+    flex-direction: column;
+    flex: content;
+    width: 100%;
+    margin: 30px 0;
+  }
+  footer {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .ChatBot .ChatScreen {
+    width: 270px;
+    height: 380px;
+  }
+}

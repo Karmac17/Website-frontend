@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KARMAC</title>
+    <link rel="stylesheet" href="css/bookAslot.css" />
+  </head>
+  <body>
+    <button class="Bars_Btn"></button>
+    <header>
+      <a href="/" class="logoBox"
+        ><img src="assets/logo.png" alt=""
+      /></a>
+      <nav>
+        <a href="#"><i class="fas fa-bell"></i><span></span></a>
+        <a href="/searchDealer"><i class="fas fa-search"></i></a>
+        <a href="#" class="active"><i class="fas fa-map-marker-alt"></i></a>
+        <a href="#"><i class="far fa-credit-card"></i></a>
+        <a href="/chat"><i class="far fa-comment-alt"></i></a>
+      </nav>
+      <a href="/" class="logoutBtn"
+        ><i class="fas fa-power-off"></i
+      ></a>
+    </header>
+    <section>
+      <div class="Address">
+        <h1>Sai Auto Hyundai</h1>
+        <a href="#"
+          >New Chandan Avenue, B-104, Opp tunga hosp, Mira Bhayandar Rd, Mira
+          Road, Mira Bhayandar, Maharashtra 401107</a
+        >
+        <a href="tel:+918288324256"
+          ><i class="fas fa-phone-alt"></i> 8288324256</a
+        >
+        <p>Pickup drop available / not available</p>
+        <div class="mapLocation">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.7835800654507!2d72.85979240069202!3d19.291775486900537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b037c3474bd5%3A0xa831c38fd54a13bf!2sC%20Wing%2C%20New%20Chandan%20Avenue!5e0!3m2!1sen!2sin!4v1615901445186!5m2!1sen!2sin"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+        <button id="bookSlotToggle">Book a Slot</button>
+      </div>
+      <div class="sideBox">
+        <video autoplay muted controls loop>
+          <source src="assets/sideVideo.mp4" type="video/mp4" />
+        </video>
+        <div class="BookASlotForm">
+          <a id="closeBookSlotForm" href="#">&#10005;</a>
+          <h1>Book a slot</h1>
+          <form action="">
+            <div class="inputBox">
+              <input
+                type="email"
+                placeholder="Enter your email for order updates"
+              />
+            </div>
+            <div class="inputBox">
+              <label for="date">Select date : </label>
+              <input type="date" />
+            </div>
+            <div class="inputBox">
+              <select name="timeSlots" id="">
+                <option value="1">Select a slot</option>
+                <option value="2">9-12</option>
+                <option value="3">1-4</option>
+                <option value="4">4-7</option>
+              </select>
+            </div>
+            <div class="inputBox">
+              <select name="timeSlots" id="">
+                <option value="1">Select your booking preference</option>
+                <option value="2">Clutch Bleeding</option>
+                <option value="3">Caliper pin greasing</option>
+                <option value="4">Starter Motor O/H</option>
+              </select>
+            </div>
+            <div class="inputBox">
+              <textarea
+                name="reasonForBooking"
+                id=""
+                placeholder="Specific problem witnessed ( if any )"
+              ></textarea>
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" name="" id="" />
+              <label for="checkbox">tick if you have free services left</label>
+            </div>
+            <div class="checkBox">
+              <input type="checkbox" name="" id="" />
+              <label for="checkbox">Want Pickup & Drop</label>
+            </div>
+            <input type="submit" value="Book" />
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/fonsawesome.js" crossorigin="anonymous"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      // Navbar
+      const Bars_Btn = document.querySelector(".Bars_Btn");
+      Bars_Btn.addEventListener("click", () => {
+        Bars_Btn.classList.toggle("active");
+        document.querySelector("header").classList.toggle("active");
+      });
+
+      const BookASlotForm = document.querySelector(".BookASlotForm");
+      const bookSlotToggle = document.querySelector("#bookSlotToggle");
+      bookSlotToggle.addEventListener("click", () => {
+        BookASlotForm.classList.toggle("active");
+      });
+
+      const closeBookSlotForm = document.querySelector("#closeBookSlotForm");
+      closeBookSlotForm.addEventListener("click", () => {
+        BookASlotForm.classList.remove("active");
+      });
+
+      const checkBox = document.querySelectorAll(".checkBox");
+      checkBox[0].querySelector("label").addEventListener("click", () => {
+        if (
+          checkBox[0].querySelector('input[type="checkbox"]').checked == false
+        ) {
+          checkBox[0].querySelector('input[type="checkbox"]').checked = true;
+        } else {
+          checkBox[0].querySelector('input[type="checkbox"]').checked = false;
+        }
+      });
+      checkBox[1].querySelector("label").addEventListener("click", () => {
+        if (
+          checkBox[1].querySelector('input[type="checkbox"]').checked == false
+        ) {
+          checkBox[1].querySelector('input[type="checkbox"]').checked = true;
+        } else {
+          checkBox[1].querySelector('input[type="checkbox"]').checked = false;
+        }
+      });
+
+    </script>
+  </body>
+</html>

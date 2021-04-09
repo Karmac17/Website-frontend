@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/myorders.css" />
+    <title>KARMAC</title>
+  </head>
+  <body>
+    <button class="Bars_Btn"></button>
+    <header>
+      <a href="/" class="logoBox"></a>
+      <nav>
+        <a id="notificationBtn" href="#">
+          <i class="fas fa-bell"></i><span></span>
+          <p>notification</p>
+        </a>
+        <a href="/searchDealer">
+          <i class="fas fa-search"></i>
+          <p>explore</p>
+        </a>
+        <a href="#">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>location</p>
+        </a>
+        <a href="#">
+          <i class="far fa-credit-card"></i>
+          <p>payments</p>
+        </a>
+        <a href="/chat">
+          <i class="far fa-comment-alt"></i>
+          <p>Chat with dealer</p>
+        </a>
+      </nav>
+      <a href="#" class="logoutBtn">
+        <i class="fas fa-power-off"></i>
+        <p>logout</p>
+      </a>
+    </header>
+    <section>
+      <div class="banner">
+        <div class="contentBox">
+          <h1>MY ORDERS</h1>
+          <p>
+            Karmac allows you to toggle between your car collection, check your
+            health status
+          </p>
+        </div>
+        <button onclick="showFilterBox()">filters</button>
+        <div class="filterBox">
+          <button onclick="hideFilterBox()">&#10005;</button>
+          <h3>Currently active</h3>
+          <h3>Past orders</h3>
+          <p><img src="assets/arrow-icon.png" alt="" /> Sort By</p>
+        </div>
+      </div>
+      <div class="carsGallery">
+        <a href="/specificCar"
+          ><div class="car">
+            <div class="imgBox">
+              <img src="assets/my orders car.png" alt="" />
+            </div>
+            <div class="contentBox">
+              <h2>Mercedes-Benz E-class</h2>
+              <p>
+                Reg No: MH 03 CB 3980<br />
+                Mercedes-Benz Auto Hanger<br />
+                Booking slot: 12/02/2021 Morning<br /><br />
+                <span>Currently active</span>
+              </p>
+            </div>
+          </div></a
+        >
+        <a href="/specificCar"
+          ><div class="car">
+            <div class="imgBox">
+              <img src="assets/my orders car.png" alt="" />
+            </div>
+            <div class="contentBox">
+              <h3>Mercedes-Benz E-class</h3>
+              <p>
+                Reg No: MH 03 CB 3980<br />
+                Mercedes-Benz Auto Hanger<br />
+                Booking slot: 12/02/2021 Morning<br /><br />
+                <span>Currently active</span>
+              </p>
+            </div>
+          </div></a
+        >
+        <a href="/specificCar"
+          ><div class="car">
+            <div class="imgBox">
+              <img src="assets/my orders car.png" alt="" />
+            </div>
+            <div class="contentBox">
+              <h3>Mercedes-Benz E-class</h3>
+              <p>
+                Reg No: MH 03 CB 3980<br />
+                Mercedes-Benz Auto Hanger<br />
+                Booking slot: 12/02/2021 Morning<br /><br />
+                <span>Currently active</span>
+              </p>
+            </div>
+          </div></a
+        >
+      </div>
+    </section>
+
+    <!-- popups -->
+    <div class="notificationModal">
+      <h2>Notification</h2>
+      <button id="closeNotificationModal">&times;</button>
+      <ul>
+        <li>notification1</li>
+        <li>notification2</li>
+        <li>notification3</li>
+        <li>notification4</li>
+        <li>notification5</li>
+        <li>notification6</li>
+        <li>notification7</li>
+        <li>notification8</li>
+        <li>notification9</li>
+        <li>notification10</li>
+      </ul>
+    </div>
+
+    <script src="js/fonsawesome.js" crossorigin="anonymous"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script>
+      // if user not authorised
+      if (localStorage.getItem("token") == null) {
+        window.location.href = "/";
+      }
+
+      // Navbar
+      const Bars_Btn = document.querySelector(".Bars_Btn");
+      Bars_Btn.addEventListener("click", () => {
+        Bars_Btn.classList.toggle("active");
+        document.querySelector("header").classList.toggle("active");
+      });
+
+      // Filter Box show
+      const FilterBox = document.querySelector(".filterBox");
+      function showFilterBox() {
+        FilterBox.classList.add("active");
+      }
+      function hideFilterBox() {
+        FilterBox.classList.remove("active");
+      }
+
+      const notificationBtn = document.querySelector("#notificationBtn");
+      const notificationModal = document.querySelector(".notificationModal");
+      const closeNotificationModal = document.querySelector(
+        "#closeNotificationModal"
+      );
+
+      notificationBtn.addEventListener("click", () => {
+        notificationModal.classList.toggle("active");
+      });
+
+      closeNotificationModal.addEventListener("click", () => {
+        notificationModal.classList.remove("active");
+      });
+
+      // logout
+      const logoutBtn = document.querySelector(".logoutBtn");
+
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>
